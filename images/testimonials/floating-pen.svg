@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 900" role="img" aria-labelledby="title desc">
+  <title id="title">Floating navy and gold pen</title>
+  <desc id="desc">A vertical glossy navy pen with gold details and flowing green and blue accents, gently floating up and down.</desc>
+  <defs>
+    <linearGradient id="barrel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#071a38"/>
+      <stop offset=".22" stop-color="#173d70"/>
+      <stop offset=".48" stop-color="#071a35"/>
+      <stop offset=".76" stop-color="#204d83"/>
+      <stop offset="1" stop-color="#06152e"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9c671b"/>
+      <stop offset=".28" stop-color="#f8df8a"/>
+      <stop offset=".52" stop-color="#c18a2d"/>
+      <stop offset=".78" stop-color="#fff0b2"/>
+      <stop offset="1" stop-color="#956019"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".45" stop-color="#d9ecff" stop-opacity=".65"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b4f34d"/>
+      <stop offset="1" stop-color="#55b900"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#69d4ff"/>
+      <stop offset="1" stop-color="#0879c8"/>
+    </linearGradient>
+    <filter id="shadow" x="-100%" y="-30%" width="300%" height="180%">
+      <feGaussianBlur stdDeviation="13"/>
+    </filter>
+  </defs>
+
+  <!-- soft grounding shadow -->
+  <ellipse cx="160" cy="838" rx="58" ry="12" fill="#071a38" opacity=".16" filter="url(#shadow)">
+    <animate attributeName="opacity" values=".12;.22;.12" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="rx" values="52;62;52" dur="4s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -14;0 0" dur="4s" repeatCount="indefinite"/>
+    <!-- pen cap -->
+    <path d="M116 124 Q116 56 160 34 Q204 56 204 124 L204 164 L116 164Z" fill="url(#barrel)" stroke="#315781" stroke-width="2"/>
+    <path d="M133 66 Q160 45 174 55" fill="none" stroke="url(#shine)" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+    <path d="M116 123 Q160 132 204 123 L204 151 Q160 160 116 151Z" fill="url(#gold)"/>
+    <path d="M116 151 Q160 160 204 151 L204 166 Q160 176 116 166Z" fill="#071a38"/>
+
+    <!-- clip -->
+    <path d="M145 177 Q145 156 160 156 Q175 156 175 177 L174 350 Q173 374 160 382 Q147 374 146 350Z" fill="url(#gold)" stroke="#805515" stroke-width="2"/>
+    <path d="M153 183 Q160 174 167 183 L166 345 Q165 358 160 363 Q155 358 154 345Z" fill="#fff0b4" opacity=".55"/>
+
+    <!-- main barrel -->
+    <path d="M116 164 Q160 176 204 164 L204 690 Q204 719 190 746 L130 746 Q116 719 116 690Z" fill="url(#barrel)" stroke="#294d78" stroke-width="2"/>
+    <path d="M128 181 Q135 177 140 180 L140 701 Q137 721 132 730 Q126 710 126 690Z" fill="url(#shine)" opacity=".62"/>
+    <path d="M190 180 Q197 176 199 184 L199 688 Q198 715 190 728" fill="none" stroke="#8db9e8" stroke-opacity=".24" stroke-width="3"/>
+
+    <!-- flowing brand accents -->
+    <path d="M193 248 C145 310 183 373 145 448 C119 501 133 566 164 630 C179 663 178 693 164 720" fill="none" stroke="url(#green)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M202 281 C166 342 194 398 166 468 C145 522 149 582 178 642" fill="none" stroke="url(#blue)" stroke-width="5" stroke-linecap="round" opacity=".95"/>
+
+    <!-- lower bands and writing tip -->
+    <path d="M116 675 Q160 685 204 675 L204 694 Q160 705 116 694Z" fill="url(#gold)"/>
+    <path d="M116 704 Q160 714 204 704 L204 719 Q160 730 116 719Z" fill="url(#gold)"/>
+    <path d="M130 746 L190 746 L174 833 Q160 850 146 833Z" fill="url(#gold)" stroke="#8e611e" stroke-width="2"/>
+    <path d="M151 828 L169 828 L164 870 Q160 881 156 870Z" fill="#b9c6d4" stroke="#6b7b8e" stroke-width="1.5"/>
+    <path d="M157 867 L163 867 L160 884Z" fill="#17263c"/>
+    <path d="M143 757 L151 757 L158 829" fill="none" stroke="#fff0b4" stroke-width="3" opacity=".65"/>
+  </g>
+</svg>

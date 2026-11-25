@@ -1,0 +1,4244 @@
+/**
+ * Uttaranchal University - Global Design System
+ * Brand Identity & Foundation Stylesheet
+ * 
+ * Strict Brand Guidelines:
+ * - UU Navy: #1E4174
+ * - Midnight: #0E244A
+ * - Logo Indigo: #313E89
+ * - Royal: #2C4998
+ * - Logo Azure: #1C68AA
+ * - Logo Green: #80CE53 (CTA accents on dark)
+ * - Deep Green: #3E7A1E (Green text on light)
+ * - White: #FFFFFF
+ * - Mist: #E8EDF5
+ * - Green Tint: #EEF8E7
+ * - Page: #F4F4F4
+ * - Ink: #1A1A1A
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Oswald:wght@400;500;600;700&display=swap');
+
+/* ==========================================================================
+   1. CSS DESIGN SYSTEM & TOKENS (:root)
+   ========================================================================== */
+:root {
+  /* Brand Palette */
+  --uu-navy: #1E4174;
+  --uu-midnight: #0E244A;
+  --uu-indigo: #313E89;
+  --uu-royal: #2C4998;
+  --uu-azure: #1C68AA;
+  --uu-logo-green: #80CE53;
+  --uu-deep-green: #3E7A1E;
+  --uu-white: #FFFFFF;
+  --uu-mist: #E8EDF5;
+  --uu-green-tint: #EEF8E7;
+  --uu-page: #F4F4F4;
+  --uu-ink: #1A1A1A;
+
+  /* RGB Tokens for Opacity Calculations */
+  --uu-navy-rgb: 30, 65, 116;
+  --uu-midnight-rgb: 14, 36, 74;
+  --uu-indigo-rgb: 49, 62, 137;
+  --uu-royal-rgb: 44, 73, 152;
+  --uu-azure-rgb: 28, 104, 170;
+  --uu-logo-green-rgb: 128, 206, 83;
+  --uu-deep-green-rgb: 62, 122, 30;
+  --uu-white-rgb: 255, 255, 255;
+  --uu-mist-rgb: 232, 237, 245;
+  --uu-green-tint-rgb: 238, 248, 231;
+  --uu-page-rgb: 244, 244, 244;
+  --uu-ink-rgb: 26, 26, 26;
+
+  /* Muted Text / Neutral Tokens */
+  --uu-ink-muted: #4A5568;
+  --uu-border-subtle: #E2E8F0;
+  --uu-border-mist: #D9E2EC;
+
+  /* Brand Gradients (Strictly Official Brand Colours) */
+  --grad-navy-indigo: linear-gradient(135deg, var(--uu-navy) 0%, var(--uu-indigo) 100%);
+  --grad-midnight-navy: linear-gradient(135deg, var(--uu-midnight) 0%, var(--uu-navy) 100%);
+  --grad-royal-azure: linear-gradient(135deg, var(--uu-royal) 0%, var(--uu-azure) 100%);
+  --grad-dark-surface: linear-gradient(180deg, #0E244A 0%, #15325F 100%);
+  --grad-subtle-light: linear-gradient(180deg, #FFFFFF 0%, var(--uu-mist) 100%);
+  --grad-hero-overlay: linear-gradient(135deg, rgba(14, 36, 74, 0.94) 0%, rgba(30, 65, 116, 0.88) 100%);
+
+  /* Typography Tokens: Oswald for Headings & DM Sans for Subheadings/Body/Text */
+  --font-heading: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-subheading: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-primary: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Font Weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Fluid Responsive Typography with clamp() */
+  --fs-hero: clamp(2.35rem, 4.5vw + 1rem, 4rem);           /* 38px to 64px */
+  --fs-h2: clamp(1.85rem, 2.75vw + 0.65rem, 2.75rem);       /* 30px to 44px */
+  --fs-h3: clamp(1.35rem, 1.4vw + 0.65rem, 1.75rem);        /* 22px to 28px */
+  --fs-h4: clamp(1.15rem, 0.8vw + 0.65rem, 1.35rem);        /* 18px to 22px */
+  --fs-body-lead: clamp(1.0625rem, 0.4vw + 0.95rem, 1.25rem); /* 17px to 20px */
+  --fs-body: clamp(0.975rem, 0.25vw + 0.9rem, 1.0625rem);    /* 15.6px to 17px */
+  --fs-small: clamp(0.8125rem, 0.2vw + 0.75rem, 0.875rem);   /* 13px to 14px */
+  --fs-eyebrow: 0.8125rem;                                   /* 13px */
+
+  /* Line Heights */
+  --lh-tight: 1.15;
+  --lh-heading: 1.25;
+  --lh-subheading: 1.35;
+  --lh-body: 1.65;
+  --lh-relaxed: 1.75;
+
+  /* Spacing Scale (8px, 16px, 24px, 32px, 48px, 64px, 120px) */
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-120: 120px;
+
+  /* Section Vertical Spacing */
+  --section-pad-y: clamp(56px, 7vw, 104px);
+  --section-pad-y-sm: clamp(36px, 5vw, 64px);
+  --section-pad-y-lg: clamp(72px, 9vw, 120px);
+
+  /* Clean Structured Border Radius (~4px for buttons/inputs) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;   /* Default for buttons, inputs, tags */
+  --radius-md: 6px;   /* Default for cards */
+  --radius-lg: 8px;   /* Default for feature containers */
+  --radius-xl: 12px;  /* Modals, prominent panels */
+
+  /* Shadows (Subtle, Restrained, Academic Precision) */
+  --shadow-xs: 0 1px 3px rgba(14, 36, 74, 0.05);
+  --shadow-sm: 0 2px 6px rgba(14, 36, 74, 0.07);
+  --shadow-md: 0 6px 18px rgba(14, 36, 74, 0.09);
+  --shadow-lg: 0 14px 34px rgba(14, 36, 74, 0.12);
+  --shadow-hover: 0 8px 24px rgba(30, 65, 116, 0.14);
+  --shadow-card: 0 2px 10px rgba(14, 36, 74, 0.06);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Container & Content Constraints */
+  --container-max-w: 1280px;
+  --content-text-max-w: 68ch;
+}
+
+/* ==========================================================================
+   2. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--uu-ink);
+  background-color: var(--uu-page);
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR / ADMISSIONS HEADER
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: var(--uu-white);
+  border-bottom: 1px solid var(--uu-border-subtle);
+  transition: box-shadow var(--transition-base), background-color var(--transition-base);
+  width: 100%;
+}
+
+.site-header.header-scrolled {
+  box-shadow: 0 4px 18px rgba(14, 36, 74, 0.08);
+}
+
+.navbar-uu {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  min-height: 64px;
+}
+
+.navbar-brand-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.navbar-brand-logo {
+  height: 42px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-admissions-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-primary);
+  font-size: clamp(0.9375rem, 1.35vw, 1.25rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.nav-admissions-text {
+  color: var(--uu-navy);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nav-admissions-year {
+  color: var(--uu-deep-green); /* Strict guideline: Deep Green for readable text on light backgrounds */
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+/* Tablet viewports (<= 991.98px) */
+@media (max-width: 991.98px) {
+  .navbar-uu {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    min-height: 58px;
+  }
+  .navbar-brand-logo {
+    height: 36px;
+  }
+  .nav-admissions-highlight {
+    font-size: 1rem;
+    gap: 6px;
+  }
+}
+
+/* Mobile viewports (<= 575.98px) */
+@media (max-width: 575.98px) {
+  .navbar-uu {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 52px;
+  }
+  .navbar-brand-logo {
+    height: 30px;
+  }
+  .nav-admissions-highlight {
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+    gap: 4px;
+  }
+}
+
+/* Small mobile (<= 375px) */
+@media (max-width: 375px) {
+  .navbar-brand-logo {
+    height: 26px;
+  }
+  .nav-admissions-highlight {
+    font-size: 0.725rem;
+    gap: 3px;
+  }
+}
+
+/* ==========================================================================
+   HERO ADMISSIONS SECTION
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  background-color: var(--uu-midnight);
+  /* Authentic Uttaranchal University campus background with brand gradient overlay */
+  background-image: 
+    linear-gradient(105deg, rgba(14, 36, 74, 0.94) 0%, rgba(30, 65, 116, 0.86) 42%, rgba(14, 36, 74, 0.35) 72%, rgba(14, 36, 74, 0.65) 100%),
+    url('../images/uttaranchal-university-hero-background.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 600px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  padding-top: var(--space-32);
+  padding-bottom: 50px;
+}
+
+/* Bottom organic brand wave curve */
+.hero-bottom-curve {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.hero-bottom-curve svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Left Column: Anchored in the downward left corner */
+.hero-left-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  z-index: 3;
+}
+
+.hero-badge-wrap {
+  margin-bottom: var(--space-16);
+}
+
+.hero-admissions-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--uu-white);
+  color: var(--uu-navy);
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 6px 14px 6px 10px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.badge-accent-bar {
+  display: inline-block;
+  width: 4px;
+  height: 14px;
+  background-color: var(--uu-logo-green);
+  border-radius: 2px;
+}
+
+.hero-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 3.8vw + 0.5rem, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--uu-white);
+  text-align: left;
+  margin-bottom: var(--space-16);
+}
+
+.text-brand-green {
+  color: var(--uu-logo-green) !important;
+}
+
+.hero-lead {
+  font-family: var(--font-subheading);
+  font-size: clamp(0.95rem, 1.1vw, 1.0625rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.90);
+  max-width: 520px;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+/* Right Column: Lead Registration Form Card */
+.hero-right-col {
+  z-index: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero-form-card {
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(180deg, #0E3584 0%, #153E92 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 16px 44px rgba(14, 36, 74, 0.35);
+  overflow: hidden;
+}
+
+.hero-form-header {
+  padding: 18px 22px 14px 22px;
+  text-align: left;
+}
+
+.hero-form-eyebrow {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2px;
+  letter-spacing: 0.02em;
+}
+
+.hero-form-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 1.4vw, 1.4rem);
+  font-weight: 700;
+  color: var(--uu-white);
+  line-height: 1.25;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.hero-form-accent-line {
+  width: 38px;
+  height: 3px;
+  background-color: var(--uu-logo-green);
+  border-radius: 2px;
+}
+
+.hero-form-body {
+  background-color: var(--uu-white);
+  border-radius: 10px;
+  margin: 0 10px 10px 10px;
+  padding: 16px 16px 14px 16px;
+}
+
+.form-control-uu,
+.form-select-uu {
+  font-family: var(--font-primary);
+  font-size: 0.84rem;
+  padding: 7px 12px;
+  height: 38px;
+  border: 1px solid #D1D5DB;
+  border-radius: var(--radius-sm);
+  color: var(--uu-ink);
+  background-color: #FFFFFF;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-control-uu::placeholder {
+  color: #9CA3AF;
+  font-size: 0.82rem;
+}
+
+.form-control-uu:focus,
+.form-select-uu:focus {
+  border-color: var(--uu-azure);
+  box-shadow: 0 0 0 3px rgba(28, 104, 170, 0.18);
+  outline: none;
+}
+
+.input-group-uu {
+  border-radius: var(--radius-sm);
+}
+
+.input-group-uu .btn-country-code {
+  background-color: #F9FAFB;
+  border: 1px solid #D1D5DB;
+  border-right: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--uu-ink);
+  padding: 0 10px;
+  height: 38px;
+  border-top-left-radius: var(--radius-sm);
+  border-bottom-left-radius: var(--radius-sm);
+}
+
+.input-group-uu .btn-country-code:focus {
+  border-color: var(--uu-azure);
+  box-shadow: none;
+}
+
+.input-group-uu .form-control-uu {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.hero-consent-check {
+  font-size: 0.7rem;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.hero-consent-check .form-check-input {
+  width: 14px;
+  height: 14px;
+  margin-top: 2px;
+  border-radius: 3px;
+  border-color: #9CA3AF;
+  cursor: pointer;
+}
+
+.hero-consent-check .form-check-input:checked {
+  background-color: var(--uu-navy);
+  border-color: var(--uu-navy);
+}
+
+.btn-hero-submit {
+  background-color: var(--uu-logo-green);
+  border: 1px solid var(--uu-logo-green);
+  color: var(--uu-midnight);
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 12px rgba(128, 206, 83, 0.28);
+}
+
+.btn-hero-submit:hover {
+  background-color: #90DC62;
+  border-color: #90DC62;
+  color: var(--uu-midnight);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(128, 206, 83, 0.38);
+}
+
+.btn-hero-already {
+  background-color: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  color: var(--uu-navy);
+  font-family: var(--font-primary);
+  font-size: 0.84rem;
+  font-weight: 600;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-hero-already:hover {
+  background-color: #E5E7EB;
+  color: var(--uu-midnight);
+}
+
+/* Responsive adjustments for Hero */
+@media (max-width: 991.98px) {
+  .hero-section {
+    padding-top: var(--space-24);
+    padding-bottom: 40px;
+    background-image: 
+      linear-gradient(180deg, rgba(14, 36, 74, 0.92) 0%, rgba(30, 65, 116, 0.90) 100%),
+      url('../images/uttaranchal-university-hero-background.webp');
+  }
+
+  .hero-left-col {
+    margin-bottom: var(--space-24);
+  }
+
+  .hero-right-col {
+    justify-content: center;
+  }
+
+  .hero-form-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-heading {
+    font-size: 1.85rem;
+  }
+
+  .hero-form-body {
+    padding: 14px 12px;
+  }
+}
+
+/* ==========================================================================
+   INDUSTRY RECRUITERS SECTION (Infinite Loop Right to Left)
+   ========================================================================== */
+.recruiters-section {
+  background-color: var(--uu-white);
+  padding-top: var(--space-48);
+  padding-bottom: var(--space-48);
+  border-bottom: 1px solid var(--uu-border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.recruiters-header-wrap {
+  margin-bottom: var(--space-24);
+  text-align: left;
+}
+
+.recruiters-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+  font-weight: 400;
+  color: var(--uu-navy);
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.recruiters-accent-bar {
+  width: 44px;
+  height: 3px;
+  background-color: var(--uu-logo-green);
+  border-radius: 2px;
+}
+
+.recruiters-carousel-shell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.recruiters-marquee-container {
+  overflow-x: auto;
+  position: relative;
+  flex-grow: 1;
+  padding: 8px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+
+.recruiters-marquee-container::-webkit-scrollbar {
+  display: none;
+}
+
+.recruiters-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  animation: marqueeRTL 45s linear infinite;
+  will-change: transform;
+}
+
+.recruiters-marquee-container:hover .recruiters-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeRTL {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.recruiter-logo-card {
+  flex: 0 0 auto;
+  width: 156px;
+  height: 122px;
+  background-color: var(--uu-white);
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(14, 36, 74, 0.04);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.recruiter-logo-card:hover {
+  transform: translateY(-3px);
+  border-color: #D1D5DB;
+  box-shadow: 0 8px 20px rgba(30, 65, 116, 0.12);
+}
+
+.recruiter-logo-card img {
+  max-width: 100%;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Nav Controls (< and > arrows matching reference image) */
+.recruiter-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--uu-white);
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--uu-navy);
+  font-size: 0.9rem;
+  cursor: pointer;
+  z-index: 5;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.recruiter-nav-btn:hover {
+  background-color: var(--uu-navy);
+  color: var(--uu-white);
+  border-color: var(--uu-navy);
+  box-shadow: 0 4px 12px rgba(30, 65, 116, 0.18);
+}
+
+.recruiter-nav-btn:focus-visible {
+  outline: 2px solid var(--uu-azure);
+  outline-offset: 2px;
+}
+
+@media (max-width: 991.98px) {
+  .recruiter-logo-card {
+    width: 140px;
+    height: 110px;
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .recruiter-logo-card img {
+    max-height: 70px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .recruiters-section {
+    padding-top: var(--space-32);
+    padding-bottom: var(--space-32);
+  }
+  .recruiter-logo-card {
+    width: 124px;
+    height: 98px;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .recruiter-logo-card img {
+    max-height: 62px;
+  }
+  .recruiter-nav-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+}
+
+/* ==========================================================================
+   WHY CHOOSE UTTARANCHAL UNIVERSITY (USP SECTION)
+   ========================================================================== */
+.usp-section {
+  background-color: var(--uu-white);
+  padding-top: var(--space-64);
+  padding-bottom: var(--space-64);
+  border-bottom: 1px solid var(--uu-border-subtle);
+  position: relative;
+}
+
+.usp-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-subheading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--uu-midnight);
+  margin-bottom: var(--space-16);
+  text-align: left;
+}
+
+.usp-eyebrow-line {
+  display: inline-block;
+  width: 24px;
+  height: 3px;
+  background-color: var(--uu-logo-green);
+  border-radius: 2px;
+}
+
+.usp-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw + 0.5rem, 3rem);
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--uu-midnight);
+  text-align: left;
+  margin-bottom: var(--space-24);
+}
+
+.usp-heading .text-brand-green {
+  color: #3E7A1E !important; /* Deep Green for readable contrast on light backgrounds */
+}
+
+.btn-uu-navy-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--uu-midnight);
+  color: var(--uu-white);
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  padding: 10px 26px;
+  border-radius: 50px;
+  border: 1px solid var(--uu-midnight);
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.btn-uu-navy-pill:hover {
+  background-color: var(--uu-royal);
+  border-color: var(--uu-royal);
+  color: var(--uu-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(14, 36, 74, 0.2);
+}
+
+.usp-subtitle-text {
+  font-family: var(--font-subheading);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.6;
+  color: #374151;
+  text-align: left;
+  margin-bottom: var(--space-24);
+  max-width: 500px;
+}
+
+.usp-counter-box {
+  text-align: left;
+}
+
+.usp-counter-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #3E7A1E; /* Deep Green for prominent academic authority */
+  margin-bottom: 6px;
+}
+
+.usp-counter-label {
+  font-family: var(--font-subheading);
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-weight: 700;
+  color: var(--uu-midnight);
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.usp-header-divider {
+  border-left: 1px solid #E5E7EB;
+  padding-left: 40px;
+}
+
+/* 8 USP Cards Grid */
+.usp-cards-grid {
+  margin-top: var(--space-48);
+}
+
+.usp-card {
+  position: relative;
+  min-height: 185px;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(14, 36, 74, 0.08);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.32s ease;
+  cursor: pointer;
+  height: 100%;
+}
+
+/* Pop up on Hover (Desktop) & Touch (Mobile) */
+.usp-card:hover,
+.usp-card:active,
+.usp-card.touch-active {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 36px rgba(14, 36, 74, 0.22);
+}
+
+.usp-card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.usp-card:hover .usp-card-bg,
+.usp-card:active .usp-card-bg,
+.usp-card.touch-active .usp-card-bg {
+  transform: scale(1.08);
+}
+
+.usp-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+/* Green Card Theme */
+.usp-card-green .usp-card-overlay {
+  background: linear-gradient(90deg, rgb(38 83 13 / 91%) 0%, rgb(128 206 83 / 47%) 100%);
+}
+
+.usp-card-green:hover {
+  border-color: rgba(128, 206, 83, 0.6);
+}
+
+/* Navy Card Theme */
+.usp-card-navy .usp-card-overlay {
+  background: linear-gradient(271deg, rgb(14 36 74 / 62%) 0%, rgb(18 44 88 / 96%) 100%);
+}
+
+.usp-card-navy:hover {
+  border-color: rgba(28, 104, 170, 0.5);
+}
+
+.usp-card-content {
+  position: relative;
+  z-index: 3;
+  color: #FFFFFF;
+  text-align: left;
+}
+
+.usp-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.usp-card-bar {
+  width: 32px;
+  height: 3px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.usp-card-green .usp-card-bar {
+  background-color: #FFFFFF;
+}
+
+.usp-card-navy .usp-card-bar {
+  background-color: var(--uu-logo-green);
+}
+
+.usp-card-desc {
+  font-family: var(--font-subheading);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 0;
+  text-align: left;
+}
+
+@media (max-width: 991.98px) {
+  .usp-section {
+    padding-top: var(--space-48);
+    padding-bottom: var(--space-48);
+  }
+
+  .usp-header-divider {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 0;
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .usp-cards-grid {
+    margin-top: var(--space-32);
+  }
+
+  .usp-card {
+    min-height: 180px;
+    padding: 20px 18px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .usp-eyebrow {
+    margin-bottom: 10px;
+  }
+
+  .usp-heading {
+    font-size: 1.85rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .usp-subtitle-text {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #4B5563;
+    margin-bottom: 16px;
+  }
+
+  .usp-counter-metric {
+    font-size: 2.85rem;
+    margin-bottom: 2px;
+  }
+
+  .usp-counter-label {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .usp-card {
+    min-height: 185px;
+    padding: 16px 14px;
+    border-radius: 10px;
+  }
+
+  .usp-card-title {
+    font-size: 0.95rem;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  .usp-card-bar {
+    width: 24px;
+    height: 2.5px;
+    margin-bottom: 6px;
+  }
+
+  .usp-card-desc {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+}
+
+/* ==========================================================================
+   PROGRAMS FOR YOU (ACADEMIC PROGRAMS BROWSER SECTION)
+   ========================================================================== */
+.programs-section {
+  background-color: var(--uu-white);
+  padding-top: var(--space-64);
+  padding-bottom: var(--space-64);
+  border-bottom: 1px solid var(--uu-border-subtle);
+  position: relative;
+}
+
+.programs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-subheading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--uu-midnight);
+  margin-bottom: var(--space-16);
+}
+
+.programs-eyebrow-line {
+  display: inline-block;
+  width: 28px;
+  height: 3px;
+  background-color: var(--uu-logo-green);
+  border-radius: 2px;
+}
+
+.programs-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw + 0.5rem, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--uu-midnight);
+  margin-bottom: 12px;
+}
+
+.programs-heading .text-brand-green {
+  color: #3E7A1E !important;
+}
+
+.programs-subtitle {
+  font-family: var(--font-subheading);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
+  color: #4B5563;
+  max-width: 680px;
+  margin: 0 auto var(--space-32) auto;
+}
+
+/* Filter & Search Bar */
+.programs-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: var(--space-32);
+}
+
+.programs-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.program-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-family: var(--font-primary);
+  font-size: 0.84rem;
+  font-weight: 600;
+  border: 1px solid #E5E7EB;
+  background-color: #F8FAFC;
+  color: var(--uu-ink);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.program-filter-btn:hover {
+  background-color: var(--uu-mist);
+  color: var(--uu-navy);
+}
+
+.program-filter-btn.active {
+  background-color: var(--uu-midnight);
+  border-color: var(--uu-midnight);
+  color: var(--uu-white);
+  box-shadow: 0 2px 8px rgba(14, 36, 74, 0.2);
+}
+
+.programs-toolbar-action {
+  display: flex;
+  align-items: center;
+}
+
+/* 2-Column Program Explorer */
+.schools-sidebar-card {
+  background-color: var(--uu-white);
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(14, 36, 74, 0.05);
+  overflow: hidden;
+}
+
+.school-nav-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13.5px 20px;
+  font-family: var(--font-subheading);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--uu-ink);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #F1F5F9;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.school-nav-btn:hover {
+  background-color: var(--uu-mist);
+  color: var(--uu-navy);
+}
+
+.school-nav-btn.active {
+  background-color: var(--uu-midnight);
+  color: var(--uu-white);
+}
+
+.school-nav-btn.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--uu-logo-green);
+}
+
+.school-nav-chevron {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+  transition: transform var(--transition-fast);
+}
+
+.school-nav-btn.active .school-nav-chevron {
+  color: var(--uu-white);
+}
+
+/* Program Details Card */
+.program-details-card {
+  background-color: var(--uu-white);
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(14, 36, 74, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.program-card-header {
+  min-height: 125px;
+  padding: 24px 28px;
+  background: 
+    linear-gradient(to right, #0E244A 0%, rgba(14, 36, 74, 0.94) 48%, rgba(14, 36, 74, 0.35) 80%, rgba(14, 36, 74, 0.1) 100%),
+    url('../images/uttaranchal-university-hero-background.webp') right center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.program-card-header-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  font-weight: 400;
+  color: var(--uu-white);
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.program-card-header-bar {
+  width: 38px;
+  height: 3px;
+  background-color: var(--uu-logo-green);
+  border-radius: 2px;
+}
+
+.program-list-body {
+  flex-grow: 1;
+  background-color: var(--uu-white);
+}
+
+.program-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid #F1F5F9;
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+  gap: 16px;
+}
+
+.program-item-row:hover {
+  background-color: #F8FAFC;
+}
+
+.program-item-row:last-child {
+  border-bottom: none;
+}
+
+.program-name {
+  font-family: var(--font-primary);
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--uu-navy);
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.program-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.program-duration-badge {
+  background-color: #F1F5F9;
+  color: #4B5563;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.program-arrow-icon {
+  font-size: 0.8rem;
+  color: #9CA3AF;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.program-item-row:hover .program-arrow-icon {
+  color: var(--uu-azure);
+  transform: translateX(3px);
+}
+
+/* Other Schools & Programs Section Inside Right Column */
+.other-programs-wrap {
+  margin-top: 24px;
+  text-align: left;
+}
+
+.other-programs-heading {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--uu-midnight);
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.other-programs-bar {
+  width: 44px;
+  height: 3px;
+  background-color: var(--uu-logo-green);
+  border-radius: 2px;
+  margin-bottom: 18px;
+}
+
+.programs-stats-card {
+  background: linear-gradient(135deg, #0E244A 0%, #15386C 100%);
+  border-radius: 14px;
+  padding: 60px 28px;
+  box-shadow: 0 6px 20px rgba(14, 36, 74, 0.16);
+  margin-bottom: 0;
+}
+
+.stat-metric-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 767.98px) {
+  .stat-metric-block {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.stat-metric-desc {
+  font-family: var(--font-subheading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--uu-white);
+  line-height: 1.35;
+}
+
+.stat-metric-val {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 400;
+  color: var(--uu-logo-green);
+  line-height: 1;
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.stat-metric-plus {
+  color: var(--uu-logo-green);
+  font-weight: 800;
+  margin-left: 2px;
+}
+
+.stat-divider {
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.btn-explore-all {
+  background-color: var(--uu-logo-green);
+  border: 1px solid var(--uu-logo-green);
+  color: var(--uu-midnight);
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 9px 24px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  box-shadow: 0 3px 12px rgba(128, 206, 83, 0.3);
+  white-space: nowrap;
+}
+
+.btn-explore-all:hover {
+  background-color: #92DC65;
+  border-color: #92DC65;
+  color: var(--uu-midnight);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(128, 206, 83, 0.4);
+}
+
+@media (max-width: 991.98px) {
+  .programs-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .programs-toolbar-action {
+    width: 100%;
+  }
+  .programs-toolbar-action .btn-explore-all {
+    width: 100%;
+    justify-content: center;
+  }
+  .schools-sidebar-card {
+    max-height: 320px;
+    overflow-y: auto;
+  }
+  .stat-divider {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .program-item-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 14px 16px;
+  }
+  .program-meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .programs-stats-card {
+    padding: 20px 18px;
+  }
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY SYSTEM (Strictly Left-Aligned Headings)
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-heading);
+  color: var(--uu-navy);
+  text-align: left; /* Strict rule: All headings must be left-aligned */
+  margin-top: 0;
+  margin-bottom: var(--space-16);
+  letter-spacing: -0.02em;
+}
+
+h1, .h1 {
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+}
+
+h2, .h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+}
+
+h3, .h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-subheading);
+}
+
+h4, .h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-subheading);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-16);
+  max-width: var(--content-text-max-w);
+  color: var(--uu-ink);
+}
+
+p.lead, .lead {
+  font-family: var(--font-subheading);
+  font-size: var(--fs-body-lead);
+  line-height: var(--lh-relaxed);
+  color: var(--uu-ink-muted);
+}
+
+small, .text-small {
+  font-size: var(--fs-small);
+  line-height: 1.45;
+}
+
+/* Core Brand Utility Classes (Active in layout & scripts) */
+.bg-uu-midnight {
+  background-color: var(--uu-midnight) !important;
+  color: var(--uu-white);
+}
+
+.bg-uu-page {
+  background-color: var(--uu-page) !important;
+  color: var(--uu-ink);
+}
+
+.text-uu-navy {
+  color: var(--uu-navy) !important;
+}
+
+/* Accessibility & Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   12. CAMPUS LIFE GALLERY (3D COVERFLOW CAROUSEL) - LIGHT & OPTIMIZED
+   ========================================================================== */
+.gallery-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFD 50%, #EFF4FC 100%);
+  padding-top: var(--space-48);
+  padding-bottom: var(--space-48);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--uu-border-subtle);
+  contain: content;
+}
+
+.gallery-header-block {
+  margin-bottom: var(--space-32);
+}
+
+.gallery-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw + 0.5rem, 3.1rem);
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--uu-midnight);
+  margin-bottom: 12px;
+}
+
+.gallery-heading .text-brand-green {
+  color: #3E7A1E !important;
+}
+
+.gallery-subtitle {
+  font-family: var(--font-subheading);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
+  color: #4B5563;
+  max-width: 720px;
+  margin-bottom: 0;
+}
+
+/* 3D Coverflow Stage Wrapper - Hardware Accelerated & Smooth Flow */
+/* ==========================================================================
+   12. CAMPUS LIFE GALLERY: 3D CURVED CYLINDRICAL ARC CAROUSEL
+   - Concave Cylindrical Arc Geometry (Curved IMAX Panorama)
+   - Edge Gradient Vignettes (Matching Reference Image)
+   - Interactive 3D Cursor Parallax & Inertial Dragging
+   - Card Hover Elevation (Z-Axis Lift & Glow)
+   ========================================================================== */
+
+.gallery-section {
+  background: radial-gradient(ellipse at 50% 30%, #FFFFFF 0%, #FAF8F5 55%, #F4EFEA 100%);
+  padding: 45px 0 32px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  contain: content;
+}
+
+.gallery-header-block {
+  margin-bottom: 38px;
+}
+
+.gallery-accent-bar {
+  width: 52px;
+  height: 4.5px;
+  border-radius: 4px;
+  background-color: var(--color-logo-green, #80CE53);
+  margin-bottom: 16px;
+}
+
+.gallery-heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-midnight, #0E244A);
+  margin-bottom: 12px;
+}
+
+.gallery-heading .text-brand-green {
+  color: var(--color-logo-green, #80CE53);
+}
+
+.gallery-subtitle {
+  font-family: var(--font-subheading);
+  font-size: clamp(0.96rem, 1.18vw, 1.08rem);
+  color: #64748B;
+  max-width: 720px;
+  line-height: 1.62;
+  margin: 0;
+}
+
+/* Full-Width 3D Curved Arc Stage Wrapper */
+.curved-arc-stage-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 18px 0 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Left & Right Soft Edge Gradient Vignette Masks */
+.curved-arc-fade-left,
+.curved-arc-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 180px;
+  z-index: 24;
+  pointer-events: none;
+}
+
+.curved-arc-fade-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(250, 248, 245, 0.98) 0%, rgba(250, 248, 245, 0.8) 35%, rgba(250, 248, 245, 0) 100%);
+}
+
+.curved-arc-fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(250, 248, 245, 0.98) 0%, rgba(250, 248, 245, 0.8) 35%, rgba(250, 248, 245, 0) 100%);
+}
+
+/* 3D Perspective Viewport */
+.curved-arc-viewport {
+  width: 100%;
+  height: 420px;
+  perspective: 1400px;
+  perspective-origin: 31% 79%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.curved-arc-viewport:active {
+  cursor: grabbing;
+}
+
+/* 3D Cylindrical Track */
+.curved-arc-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+/* Curved Arc Card */
+.curved-arc-card {
+  position: absolute;
+  width: 220px;
+  height: 340px;
+  top: 50%;
+  left: 50%;
+  margin-left: -110px;
+  margin-top: -170px;
+  border-radius: 20px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.curved-arc-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--color-midnight, #0E244A);
+  box-shadow: 0 16px 40px rgba(14, 36, 74, 0.22), 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              box-shadow 0.35s ease, 
+              border-color 0.35s ease;
+  transform: translateZ(0);
+}
+
+.curved-arc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Card Gradient Overlay */
+.curved-arc-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.2) 55%, rgba(14, 36, 74, 0.88) 100%);
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+/* Card Content Caption */
+.curved-arc-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 20px 20px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.curved-arc-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: #FFFFFF;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.curved-arc-bar {
+  width: 36px;
+  height: 3.5px;
+  border-radius: 3px;
+  background-color: var(--color-logo-green, #80CE53);
+  transition: width 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Card Hover Elevation Effect */
+.curved-arc-card:hover .curved-arc-card-inner {
+  transform: scale(1.035) translateZ(28px);
+  box-shadow: 0 26px 55px rgba(14, 36, 74, 0.35), 0 0 0 1px rgba(128, 206, 83, 0.45);
+}
+
+.curved-arc-card:hover .curved-arc-img {
+  transform: scale(1.06);
+}
+
+.curved-arc-card:hover .curved-arc-bar {
+  width: 55px;
+  box-shadow: 0 0 10px rgba(128, 206, 83, 0.8);
+}
+
+/* Ambient Floor Glow */
+.curved-arc-floor-glow {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 25px;
+  /* background: radial-gradient(ellipse at 50% 100%, rgba(14, 36, 74, 0.12) 0%, rgba(14, 36, 74, 0) 75%); */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Prev / Next Navigation Buttons */
+.curved-arc-nav-btn {
+  position: absolute;
+  top: 50%;
+  margin-top: -24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: var(--color-navy, #1E4174);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 6px 18px rgba(14, 36, 74, 0.12);
+  z-index: 28;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.curved-arc-nav-btn.prev-btn {
+  left: 28px;
+}
+
+.curved-arc-nav-btn.next-btn {
+  right: 28px;
+}
+
+.curved-arc-nav-btn:hover {
+  background-color: var(--color-navy, #1E4174);
+  color: #FFFFFF;
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(30, 65, 116, 0.26);
+}
+
+.curved-arc-nav-btn:active {
+  transform: scale(0.96);
+}
+
+/* Pagination Indicators */
+.curved-arc-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.curved-arc-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #CBD5E1;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.curved-arc-dot.active {
+  width: 32px;
+  border-radius: 8px;
+  background-color: var(--color-logo-green, #80CE53);
+  box-shadow: 0 2px 8px rgba(128, 206, 83, 0.4);
+}
+
+.curved-arc-dot:hover:not(.active) {
+  background-color: var(--color-navy, #1E4174);
+  transform: scale(1.2);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1199.98px) {
+  .curved-arc-card {
+    width: 250px;
+    height: 360px;
+    margin-left: -125px;
+    margin-top: -180px;
+  }
+  .curved-arc-viewport {
+    height: 440px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .gallery-section {
+    padding: 65px 0 55px;
+  }
+  .curved-arc-card {
+    width: 220px;
+    height: 320px;
+    margin-left: -110px;
+    margin-top: -160px;
+  }
+  .curved-arc-viewport {
+    height: 400px;
+  }
+  .curved-arc-fade-left,
+  .curved-arc-fade-right {
+    width: 100px;
+  }
+  .curved-arc-nav-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+    margin-top: -21px;
+  }
+  .curved-arc-nav-btn.prev-btn { left: 16px; }
+  .curved-arc-nav-btn.next-btn { right: 16px; }
+}
+
+@media (max-width: 575.98px) {
+  .gallery-section {
+    padding: 50px 0 1px;
+  }
+  .curved-arc-card {
+    width: 185px;
+    height: 275px;
+    margin-left: -92px;
+    margin-top: -191px;
+    border-radius: 16px;
+  }
+  .curved-arc-card-inner {
+    border-radius: 16px;
+  }
+  .curved-arc-viewport {
+    height: 350px;
+  }
+  .curved-arc-fade-left,
+  .curved-arc-fade-right {
+    width: 50px;
+  }
+  .curved-arc-title {
+    font-size: 0.95rem;
+  }
+  .curved-arc-content {
+    padding: 16px 14px 14px;
+  }
+  .curved-arc-nav-btn {
+    display: none;
+  }
+}
+
+
+/* ==========================================================================
+   13. STUDENT FEEDBACK & TESTIMONIALS SECTION
+   - 4-Card Automatic Carousel (Fade-Slide)
+   - Organic Electric Purple Blob & Student Showcase
+   - 3D Floating Pen Animation with Depth Levitation & Mouse Parallax
+   - Fully Responsive (<992px, <576px)
+   ========================================================================== */
+
+.testimonials-section {
+  position: relative;
+  background-color: #FFFFFF;
+  padding: 63px 0 58px;
+  overflow: hidden;
+}
+
+/* Background Ambient Lighting */
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -120px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.testimonials-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Header Block */
+.testimonials-header-block {
+  margin-bottom: 42px;
+}
+
+.testimonials-heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: var(--color-midnight, #0E244A);
+  margin-bottom: 14px;
+}
+
+.testimonials-accent-bar {
+  width: 65px;
+  height: 5px;
+  border-radius: 4px;
+  background-color: var(--color-logo-green, #80CE53);
+  margin-top: 14px;
+}
+
+/* 4-Cards Carousel Shell */
+.testimonials-carousel-shell {
+  position: relative;
+  width: 100%;
+}
+
+.testimonials-slider {
+  position: relative;
+  width: 100%;
+}
+
+/* Individual Testimonial Slide */
+.testimonial-slide {
+  display: none;
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.testimonial-slide.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Main Testimonial Card */
+.testimonial-card-main {
+  position: relative;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(226, 232, 240, 0.85);
+  border-radius: 32px;
+  box-shadow: 0 25px 60px -15px rgba(30, 65, 116, 0.08), 0 0 1px rgba(0, 0, 0, 0.05);
+  padding: 35px 50px;
+  overflow: visible;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.testimonial-card-main:hover {
+  box-shadow: 0 32px 75px -15px rgba(30, 65, 116, 0.12), 0 0 1px rgba(0, 0, 0, 0.06);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+/* Left Content Column */
+.testimonial-content-col {
+  padding-right: 30px;
+}
+
+.testimonial-card-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Top Row: Avatar + Divider + University Logo */
+.testimonial-top-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.testimonial-avatar-wrapper {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #F1F5F9;
+  box-shadow: 0 6px 16px rgba(14, 36, 74, 0.08);
+  background-color: #F8FAFC;
+}
+
+.testimonial-avatar-img {
+  width: 100%;
+  height: 145%;
+  object-fit: cover;
+  display: block;
+}
+
+.testimonial-logo-divider {
+  width: 1.5px;
+  height: 40px;
+  background-color: #E2E8F0;
+}
+
+.testimonial-brand-logo {
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-uu-logo {
+  height: 40px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Quote Block with Green Accent Bar */
+.testimonial-quote-block {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  margin: 32px 0 34px;
+}
+
+.testimonial-quote-bar {
+  width: 4px;
+  min-width: 4px;
+  border-radius: 4px;
+  background-color: var(--color-logo-green, #80CE53);
+  display: block;
+}
+
+.testimonial-quote-text {
+  font-family: var(--font-subheading);
+  font-size: clamp(1.02rem, 1.22vw, 1.15rem);
+  line-height: 1.72;
+  color: #334155;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+
+/* Bottom Row: Author Details + Arrow Navigation */
+.testimonial-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 12px;
+}
+
+.testimonial-author-name {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.32rem;
+  letter-spacing: 0.01em;
+  color: var(--color-midnight, #0E244A);
+  margin: 0 0 4px 0;
+}
+
+.testimonial-author-role {
+  font-family: var(--font-subheading);
+  font-size: 0.94rem;
+  color: #64748B;
+  font-weight: 500;
+  display: block;
+}
+
+/* Arrow Navigation Buttons */
+.testimonial-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background-color: #EEF2FF;
+  color: #4F46E5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.08);
+}
+
+.testimonial-arrow-btn:hover {
+  background-color: var(--color-navy, #1E4174);
+  color: #FFFFFF;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 18px rgba(30, 65, 116, 0.25);
+}
+
+.testimonial-arrow-btn:active {
+  transform: translateY(0) scale(0.96);
+}
+
+/* Right Visual Column & 3D Stage */
+.testimonial-visual-col {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-visual-box {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Organic Electric Purple Blob Background */
+.testimonial-blob-bg {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: linear-gradient(135deg, #5B21B6 0%, #4F46E5 60%, #313E89 100%);
+  border-radius: 64% 36% 58% 42% / 48% 54% 46% 52%;
+  box-shadow: 0 20px 50px -10px rgba(79, 70, 229, 0.4);
+  z-index: 1;
+  animation: blobOrganicFloat 9s ease-in-out infinite alternate;
+  will-change: border-radius, transform;
+}
+
+@keyframes blobOrganicFloat {
+  0% {
+    border-radius: 64% 36% 58% 42% / 48% 54% 46% 52%;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    border-radius: 52% 48% 40% 60% / 58% 42% 58% 42%;
+    transform: rotate(5deg) scale(1.02);
+  }
+  100% {
+    border-radius: 40% 60% 52% 48% / 44% 56% 44% 56%;
+    transform: rotate(-3deg) scale(0.98);
+  }
+}
+
+/* Floating Dots Around Blob */
+.blob-dot {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+}
+
+.blob-dot-1 {
+  width: 16px;
+  height: 16px;
+  background-color: #6366F1;
+  top: 18px;
+  left: 36px;
+  animation: dotFloat1 4s ease-in-out infinite alternate;
+}
+
+.blob-dot-2 {
+  width: 22px;
+  height: 22px;
+  background-color: #4F46E5;
+  bottom: 24px;
+  left: 14px;
+  animation: dotFloat2 5s ease-in-out infinite alternate;
+}
+
+.blob-dot-3 {
+  width: 14px;
+  height: 14px;
+  background-color: #818CF8;
+  bottom: 30px;
+  right: 50px;
+  animation: dotFloat3 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes dotFloat1 {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-10px) scale(1.1); }
+}
+
+@keyframes dotFloat2 {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(8px) scale(0.92); }
+}
+
+@keyframes dotFloat3 {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-7px) scale(1.15); }
+}
+
+/* Student Photo Wrap */
+.testimonial-student-photo-wrap {
+  position: relative;
+  z-index: 3;
+  width: 290px;
+  height: 290px;
+  border-radius: 50% 50% 46% 46%;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(14, 36, 74, 0.12);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: #F1F5F9;
+}
+
+.testimonial-student-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* ==========================================================================
+   3D FLOATING PEN ANIMATION & DEPTH EFFECT
+   - User requirement: "3D Hover Animation – the pen appears to float in space
+     with subtle depth effect"
+   - Ambient levitation in 3D space with keyframe bobbing & rotation
+   - Dynamic cursor parallax via JS elevating the pen forward along the Z-axis
+   ========================================================================== */
+.floating-pen-wrapper {
+  position: absolute;
+  right: -25px;
+  bottom: 15px;
+  z-index: 10;
+  width: 135px;
+  height: auto;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translate3d(0, 0, 55px) rotate(-10deg);
+  animation: penAmbientLevitation 4.2s ease-in-out infinite alternate;
+}
+
+@keyframes penAmbientLevitation {
+  0% {
+    transform: translate3d(0, 0, 55px) rotate(-10deg);
+    filter: drop-shadow(8px 16px 14px rgba(14, 36, 74, 0.26));
+  }
+  50% {
+    transform: translate3d(-6px, -16px, 80px) rotate(-15deg);
+    filter: drop-shadow(14px 28px 24px rgba(14, 36, 74, 0.38));
+  }
+  100% {
+    transform: translate3d(6px, -8px, 65px) rotate(-8deg);
+    filter: drop-shadow(10px 20px 18px rgba(14, 36, 74, 0.3));
+  }
+}
+
+.floating-pen-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: center center;
+}
+
+/* Navigation Indicator Pills */
+.testimonial-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 38px;
+}
+
+.testimonial-indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #CBD5E1;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.testimonial-indicator-dot.active {
+  width: 36px;
+  border-radius: 10px;
+  background-color: var(--color-logo-green, #80CE53);
+  box-shadow: 0 2px 8px rgba(128, 206, 83, 0.4);
+}
+
+.testimonial-indicator-dot:hover:not(.active) {
+  background-color: var(--color-navy, #1E4174);
+  transform: scale(1.2);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 991.98px) {
+  .testimonials-section {
+    padding: 70px 0 60px;
+  }
+  
+  .testimonial-card-main {
+    padding: 34px 28px;
+    border-radius: 24px;
+  }
+  
+  .testimonial-content-col {
+    padding-right: 0;
+    margin-bottom: 35px;
+  }
+  
+  .testimonial-visual-box {
+    max-width: 320px;
+    height: 320px;
+  }
+  
+  .testimonial-blob-bg {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .testimonial-student-photo-wrap {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .floating-pen-wrapper {
+    width: 105px;
+    right: -10px;
+    bottom: 5px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .testimonials-section {
+    padding: 55px 0 45px;
+  }
+  
+  .testimonial-card-main {
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+  
+  .testimonial-top-row {
+    gap: 12px;
+  }
+  
+  .testimonial-avatar-wrapper {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+  }
+  
+  .testimonial-logo-divider {
+    height: 30px;
+  }
+  
+  .testimonial-uu-logo {
+    height: 30px;
+  }
+  
+  .testimonial-quote-block {
+    margin: 22px 0 24px;
+    gap: 14px;
+  }
+  
+  .testimonial-quote-text {
+    font-size: 0.98rem;
+    line-height: 1.62;
+  }
+  
+  .testimonial-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .testimonial-nav-arrows {
+    align-self: flex-end;
+  }
+  
+  .testimonial-visual-box {
+    max-width: 260px;
+    height: 260px;
+  }
+  
+  .testimonial-blob-bg {
+    width: 210px;
+    height: 210px;
+  }
+  
+  .testimonial-student-photo-wrap {
+    width: 190px;
+    height: 190px;
+  }
+  
+  .floating-pen-wrapper {
+    width: 85px;
+    right: -5px;
+    bottom: 0px;
+  }
+}
+
+
+/* ==========================================================================
+   14. THE UU STORY IN NUMBERS SECTION
+   - Dark Obsidian Theme (#060911) with Flowing Neon Sinusoidal Wave Lines
+   - 3 Column Cards: Academic Excellence, Career Opportunities, Campus Experience
+   - Interactive Number Counting Animation
+   - Bottom CTA Pill Bar: "Your journey starts here." + Counsellor Button
+   ========================================================================== */
+
+.story-numbers-section {
+  position: relative;
+  background-color: #ffffff !important;
+  color: #0E244A;
+  padding: 34px 0 85px;
+  overflow: hidden;
+}
+
+/* Header Block */
+.story-numbers-header {
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.story-numbers-accent-bar {
+  width: 50px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: var(--color-logo-green, #80CE53);
+  margin-bottom: 16px;
+}
+
+.story-numbers-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: #0E244A;
+  margin-bottom: 12px;
+}
+
+.story-numbers-title .text-accent-green {
+  color: var(--color-logo-green, #80CE53);
+}
+
+.story-numbers-subtitle {
+  font-family: var(--font-subheading);
+  font-size: clamp(0.98rem, 1.2vw, 1.1rem);
+  color: #475569;
+  max-width: 680px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   UU STORY IN NUMBERS: 3 WHITE METRIC CARDS WITH WORKING CHARTS
+   (Exact Match to User Reference Image media_1795587809073_ed889493.jpg)
+   ========================================================================== */
+.story-cards-row {
+  position: relative;
+  z-index: 1;
+}
+
+/* White Metric Card */
+.uu-metric-card {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 18px;
+  padding: 26px 20px 22px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.uu-metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(14, 36, 74, 0.08);
+  border-color: rgba(216, 30, 91, 0.3);
+}
+
+/* Bottom-Left Corner Accent Wedges (Matches Reference Image) */
+.uu-corner-wedge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.uu-corner-wedge.wedge-blue {
+  background-color: #0070F3;
+}
+
+.uu-corner-wedge.wedge-magenta {
+  background-color: #D81E5B;
+}
+
+.uu-corner-wedge.wedge-purple {
+  background-color: #7928CA;
+}
+
+.uu-metric-card-header {
+  text-align: left;
+}
+
+.uu-metric-card-title {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: #0E244A;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+}
+
+.uu-metric-card-subtitle {
+  font-size: 0.92rem;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Horizontal Subtle Divider */
+.uu-metric-divider {
+  height: 1px;
+  background-color: #E5E7EB;
+  margin: 18px 0 16px;
+  width: 100%;
+}
+
+/* 3-Column Metrics Row */
+.uu-metric-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+.uu-metric-stat-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.uu-metric-stat-col:not(:last-child) {
+  border-right: 1px solid #E5E7EB;
+  padding-right: 6px;
+}
+
+.uu-metric-number-wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.uu-metric-stat-col .story-counter-num {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-weight: 400;
+  font-size: clamp(1.35rem, 1.8vw, 1.7rem);
+  color: #D81E5B; /* Authentic Crimson/Magenta */
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.uu-metric-label {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: 0.78rem;
+  color: #334155;
+  line-height: 1.35;
+  font-weight: 500;
+  display: block;
+}
+
+/* ==========================================================================
+   WORKING GRAPH CONTAINERS & SVG ANIMATIONS
+   ========================================================================== */
+.uu-card-chart-wrap {
+  position: relative;
+  margin-top: 18px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.uu-chart-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.uu-chart-svg-container {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 135px;
+  cursor: crosshair;
+}
+
+.uu-chart-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: block;
+}
+
+/* Animated SVG Paths */
+.uu-graph-line {
+  stroke-dasharray: 450;
+  stroke-dashoffset: 450;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.uu-graph-line.animated {
+  stroke-dashoffset: 0;
+}
+
+.uu-graph-area {
+  opacity: 0;
+  transition: opacity 1.2s ease 0.4s;
+}
+
+.uu-graph-area.animated {
+  opacity: 1;
+}
+
+/* Glowing Pulsing Endpoint */
+.uu-chart-pulse-dot {
+  animation: uuChartPulse 2s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes uuChartPulse {
+  0%, 100% {
+    r: 4.5;
+    opacity: 1;
+  }
+  50% {
+    r: 6.5;
+    opacity: 0.85;
+  }
+}
+
+/* Interactive Crosshair & Tooltips */
+.uu-chart-tooltip {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0E244A;
+  color: #FFFFFF;
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, left 0.08s ease;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.uu-chart-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: #0E244A transparent transparent transparent;
+}
+
+/* Right-Side Metrics Badge */
+.uu-chart-metric-badge {
+  width: 75px;
+  min-width: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding-left: 4px;
+}
+
+.uu-chart-metric-num {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-weight: 400;
+  font-size: 1.85rem;
+  color: #0E244A;
+  line-height: 1.05;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.uu-chart-trend-green {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: #10B981;
+  line-height: 1;
+}
+
+.uu-chart-trend-red {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color:#398e66;
+  line-height: 1;
+}
+
+/* Card 3: Donut Chart */
+.uu-donut-chart-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 135px;
+}
+
+.uu-donut-container {
+  position: relative;
+  width: 135px;
+  height: 135px;
+  margin: 0 auto;
+}
+
+.uu-donut-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.uu-donut-progress {
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.uu-donut-center-text {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: 1.95rem;
+  font-weight: 800;
+  fill: #0E244A;
+  dominant-baseline: middle;
+}
+
+/* ==========================================================================
+   BOTTOM CTA PILL BAR (White background with Magenta Pill Button)
+   ========================================================================== */
+.story-cta-pill-bar {
+  margin-top: 42px;
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 9999px;
+  padding: 12px 18px 12px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  position: relative;
+  z-index: 1;
+}
+
+.story-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-grow: 1;
+}
+
+.story-cta-magenta-indicator {
+  width: 5px;
+  height: 28px;
+  min-width: 5px;
+  background-color: #D81E5B;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.story-cta-text-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.story-cta-headline {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: #0E244A;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.story-cta-headline .text-accent-magenta {
+  color: #D81E5B;
+}
+
+.story-cta-divider {
+  color: #CBD5E1;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+.story-cta-subtext {
+  font-family: var(--font-subheading);
+  font-size: 0.95rem;
+  color: #64748B;
+  margin: 0;
+}
+
+.story-counsellor-btn {
+  background-color: #D81E5B;
+  color: #FFFFFF;
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(216, 30, 91, 0.3);
+}
+
+.story-counsellor-btn:hover {
+  background-color: #BE184D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(216, 30, 91, 0.45);
+  color: #FFFFFF;
+}
+
+.story-counsellor-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 991.98px) {
+  .story-numbers-section {
+    padding: 60px 0 70px;
+  }
+
+  .uu-metric-card {
+    padding: 22px 18px 20px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .story-numbers-section {
+    padding: 40px 0 55px;
+  }
+
+  .story-numbers-title {
+    font-size: 1.85rem;
+  }
+
+  .uu-metric-card {
+    padding: 20px 14px 18px;
+  }
+
+  .uu-metric-card-title {
+    font-size: 1.2rem;
+  }
+
+  .uu-metric-card-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .uu-metric-stats-row {
+    gap: 4px;
+  }
+
+  .uu-metric-stat-col:not(:last-child) {
+    padding-right: 4px;
+  }
+
+  .uu-metric-stat-col .story-counter-num {
+    font-size: clamp(1.12rem, 4.2vw, 1.35rem);
+  }
+
+  .uu-metric-label {
+    font-size: clamp(0.68rem, 2.3vw, 0.75rem);
+  }
+
+  .uu-chart-svg-container {
+    height: 115px;
+  }
+
+  .uu-chart-metric-badge {
+    width: 65px;
+    min-width: 65px;
+  }
+
+  .uu-chart-metric-num {
+    font-size: 1.55rem;
+  }
+
+  .uu-chart-trend-green,
+  .uu-chart-trend-red {
+    font-size: 0.92rem;
+  }
+
+  .uu-donut-chart-wrap {
+    height: 120px;
+  }
+
+  .uu-donut-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .uu-donut-center-text {
+    font-size: 1.75rem;
+  }
+
+  .story-cta-pill-bar {
+    margin-top: 32px;
+    border-radius: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .story-cta-left {
+    align-items: flex-start;
+  }
+
+  .story-cta-text-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .story-cta-divider {
+    display: none;
+  }
+
+  .story-counsellor-btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .uu-metric-card {
+    padding: 18px 10px 16px;
+  }
+
+  .uu-metric-stats-row {
+    gap: 2px;
+  }
+
+  .uu-metric-stat-col:not(:last-child) {
+    padding-right: 2px;
+  }
+
+  .uu-metric-stat-col .story-counter-num {
+    font-size: 1.08rem;
+  }
+
+  .uu-metric-label {
+    font-size: 0.68rem;
+  }
+}
+
+
+/* ==========================================================================
+   15. SCHOLARSHIP SECTION (CINEMATIC EXPANDING CARD SLIDER)
+   - Large Active Background Image Transition
+   - Horizontal Preview Cards on Right
+   - Blur-to-Clear & Fade-in Staggered Text Animations
+   - Dark Cinematic Overlays for Crystal-Clear Readability
+   - Autoplay, Hover Pause, and Touch/Swipe Ready
+   ========================================================================== */
+
+.uu-scholarship-section {
+  position: relative;
+  background-color: #060A12;
+  color: #FFFFFF;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Cinematic Slider Stage */
+.uu-scholarship-slider {
+  position: relative;
+  width: 100%;
+  height: 680px;
+  overflow: hidden;
+  background-color: #060A12;
+  box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.uu-scholarship-list {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Base Slider Item (Default: Preview Card on the right) */
+.uu-scholarship-item {
+  width: 250px;
+  height: 360px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.75), 0 0 1px rgba(255, 255, 255, 0.15);
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+  transition: 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Active Slides 1 & 2 (Expand to Full-Width Background) */
+.uu-scholarship-item:nth-child(1),
+.uu-scholarship-item:nth-child(2) {
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  box-shadow: none;
+  cursor: default;
+}
+
+/* Hide non-active items from blocking layout */
+.uu-scholarship-item:nth-child(n + 3) {
+  display: none;
+}
+
+/* Dark Cinematic Overlays */
+.uu-scholarship-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(6, 10, 18, 0.94) 0%, rgba(6, 10, 18, 0.86) 45%, rgba(6, 10, 18, 0.45) 80%, rgba(6, 10, 18, 0.7) 100%);
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Active Slide Content Container */
+.uu-scholarship-item .uu-scholarship-content {
+  display: none;
+}
+
+.uu-scholarship-item:nth-child(2) .uu-scholarship-content {
+  display: block;
+  position: absolute;
+  top: 48%;
+  left: 80px;
+  transform: translateY(-50%);
+  width: 640px;
+  max-width: calc(60% - 40px);
+  text-align: left;
+  color: #FFFFFF;
+  z-index: 10;
+}
+
+/* Staggered Entrance Animations */
+@keyframes uuScholarshipFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.uu-scholarship-item:nth-child(2) .uu-scholarship-badge {
+  opacity: 0;
+  animation: uuScholarshipFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s 1 forwards;
+}
+
+.uu-scholarship-item:nth-child(2) .uu-scholarship-title {
+  opacity: 0;
+  animation: uuScholarshipFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.22s 1 forwards;
+}
+
+.uu-scholarship-item:nth-child(2) .uu-scholarship-lead {
+  opacity: 0;
+  animation: uuScholarshipFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.34s 1 forwards;
+}
+
+.uu-scholarship-item:nth-child(2) .uu-scholarship-subtext {
+  opacity: 0;
+  animation: uuScholarshipFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.44s 1 forwards;
+}
+
+.uu-scholarship-item:nth-child(2) .uu-scholarship-btn-row {
+  opacity: 0;
+  animation: uuScholarshipFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.56s 1 forwards;
+}
+
+/* Clean Typography & Elements (Exact Match to User Screenshot) */
+.uu-scholarship-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(128, 206, 83, 0.08);
+  border: 1px solid rgba(128, 206, 83, 0.65);
+  color: var(--color-logo-green, #80CE53);
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.uu-scholarship-title {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.uu-scholarship-lead,
+.uu-scholarship-subtext {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: clamp(0.96rem, 1.2vw, 1.08rem);
+  line-height: 1.65;
+  color: #E2E8F0;
+  margin-bottom: 16px;
+  max-width: 640px;
+}
+
+.uu-scholarship-content .text-accent-green {
+  color: var(--color-logo-green, #80CE53) !important;
+}
+
+/* Button Row & Pill Buttons */
+.uu-scholarship-btn-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.uu-scholarship-btn-primary {
+  background-color: var(--color-logo-green, #80CE53);
+  color: #060911;
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-weight: 700;
+  font-size: 0.94rem;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(128, 206, 83, 0.35);
+}
+
+.uu-scholarship-btn-primary:hover {
+  background-color: #92DD66;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(128, 206, 83, 0.55);
+  color: #060911;
+}
+
+.uu-scholarship-btn-secondary {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-weight: 600;
+  font-size: 0.94rem;
+  padding: 11px 26px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.uu-scholarship-btn-secondary:hover {
+  border-color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Floating Showcase Preview Card (Right Column) */
+.uu-scholarship-item:nth-child(2) .uu-scholarship-preview-card {
+  position: absolute;
+  top: 48%;
+  left: 64%;
+  transform: translateY(-50%);
+  width: 250px;
+  height: 360px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  z-index: 15;
+}
+
+.uu-scholarship-item:nth-child(2) .uu-scholarship-preview-card:hover {
+  transform: translateY(calc(-50% - 6px)) scale(1.02);
+  box-shadow: 0 28px 55px rgba(0, 0, 0, 0.85);
+  border-color: rgba(128, 206, 83, 0.6);
+}
+
+.preview-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 10, 18, 0.1) 40%, rgba(6, 10, 18, 0.92) 100%);
+}
+
+.preview-card-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  text-align: left;
+  z-index: 2;
+}
+
+.preview-badge-green {
+  display: inline-block;
+  background-color: var(--color-logo-green, #80CE53);
+  color: #060911;
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.preview-title {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #FFFFFF;
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+}
+
+.preview-tagline {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: 0.8rem;
+  color: #CBD5E1;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Bottom Bar: Circle Navigation & Progress Line */
+.uu-scholarship-bottom-bar {
+  position: absolute;
+  bottom: 45px;
+  left: 80px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  z-index: 20;
+}
+
+.uu-scholarship-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.uu-scholarship-nav-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.uu-scholarship-nav-btn:hover {
+  background: var(--color-logo-green, #80CE53);
+  border-color: var(--color-logo-green, #80CE53);
+  color: #060911;
+  transform: scale(1.05);
+}
+
+.uu-scholarship-indicator-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.uu-scholarship-step-counter {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+}
+
+.uu-scholarship-progress-line {
+  width: 80px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+}
+
+.uu-scholarship-progress-active {
+  height: 100%;
+  background-color: var(--color-logo-green, #80CE53);
+  border-radius: 4px;
+  width: 33.33%;
+  transition: width 0.4s ease;
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 1199.98px) {
+  .uu-scholarship-slider {
+    height: 640px;
+  }
+  .uu-scholarship-item:nth-child(2) .uu-scholarship-content {
+    left: 50px;
+    max-width: calc(58% - 30px);
+  }
+  .uu-scholarship-bottom-bar {
+    left: 50px;
+    bottom: 35px;
+  }
+  .uu-scholarship-item:nth-child(2) .uu-scholarship-preview-card {
+    left: 62%;
+    width: 230px;
+    height: 330px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .uu-scholarship-slider {
+    height: 600px;
+  }
+  .uu-scholarship-item:nth-child(2) .uu-scholarship-content {
+    left: 35px;
+    width: calc(100% - 70px);
+    max-width: 56%;
+  }
+  .uu-scholarship-bottom-bar {
+    left: 35px;
+    bottom: 30px;
+  }
+  .uu-scholarship-item:nth-child(2) .uu-scholarship-preview-card {
+    left: 64%;
+    width: 210px;
+    height: 310px;
+  }
+}
+
+/* Mobile Responsiveness (<= 767.98px) */
+@media (max-width: 767.98px) {
+  .uu-scholarship-slider {
+    height: auto;
+    min-height: 520px;
+  }
+
+  /* Hide non-active items from view */
+  .uu-scholarship-item,
+  .uu-scholarship-item:nth-child(1),
+  .uu-scholarship-item:nth-child(n + 3) {
+    display: none !important;
+  }
+
+  /* Only display the single active slide */
+  .uu-scholarship-item:nth-child(2) {
+    display: flex !important;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 520px;
+    padding: 30px 20px 85px 20px;
+  }
+
+  .uu-scholarship-overlay {
+    background: linear-gradient(180deg, rgba(6, 10, 18, 0.92) 0%, rgba(6, 10, 18, 0.95) 50%, rgba(6, 10, 18, 0.98) 100%);
+  }
+
+  .uu-scholarship-item:nth-child(2) .uu-scholarship-content {
+    display: block;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+  }
+
+  /* Hide preview card on mobile */
+  .uu-scholarship-item .uu-scholarship-preview-card,
+  .uu-scholarship-item:nth-child(2) .uu-scholarship-preview-card {
+    display: none !important;
+  }
+
+  .uu-scholarship-title {
+    font-size: clamp(1.4rem, 5.5vw, 1.85rem);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .uu-scholarship-lead,
+  .uu-scholarship-subtext {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .uu-scholarship-btn-row {
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .uu-scholarship-btn-primary {
+    flex: 1.2;
+    padding: 10px 14px;
+    font-size: 0.84rem;
+  }
+
+  .uu-scholarship-btn-secondary {
+    flex: 0.9;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+  }
+
+  .uu-scholarship-bottom-bar {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .uu-scholarship-nav-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+
+  .uu-scholarship-step-counter {
+    font-size: 0.95rem;
+  }
+
+  .uu-scholarship-progress-line {
+    width: 60px;
+  }
+}
+
+/* Small mobile devices (<= 420px) */
+@media (max-width: 420px) {
+  .uu-scholarship-slider {
+    min-height: 540px;
+  }
+
+  .uu-scholarship-item:nth-child(2) {
+    padding: 24px 14px 80px 14px;
+    min-height: 540px;
+  }
+
+  .uu-scholarship-title {
+    font-size: 1.35rem;
+  }
+
+  .uu-scholarship-btn-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .uu-scholarship-btn-primary,
+  .uu-scholarship-btn-secondary {
+    width: 100%;
+    flex: none;
+    height: 42px;
+  }
+}
+
+/* ==========================================================================
+   HOW TO APPLY SECTION (3-Step Chronological Admission Timeline)
+   - Plain White Background (#ffffff)
+   - Authentic Crimson/Magenta Accent Line
+   - Central Grey Timeline Track with Arrowhead & Circular Nodes
+   - Deep Navy Cards with Icon + Text + Pointer Chevrons
+   - Fully Responsive (Alternating on Desktop, Left-Aligned on Mobile)
+   ========================================================================== */
+.uu-apply-section {
+  background-color: #ffffff;
+  padding: 85px 0 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.uu-apply-header {
+  margin-bottom: 50px;
+}
+
+.uu-apply-title {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  font-weight: 400;
+  color: #0E244A;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px 0;
+  line-height: 1.15;
+}
+
+.uu-apply-accent-bar {
+  width: 62px;
+  height: 5px;
+  background: linear-gradient(90deg, #D81E5B, #E11D48);
+  border-radius: 3px;
+}
+
+.uu-apply-intro {
+  max-width: 68ch;
+  font-size: 1.0625rem;
+  color: #4A5568;
+  line-height: 1.6;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+/* Timeline Layout Container */
+.uu-apply-timeline {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px 0 35px;
+}
+
+/* Central Timeline Vertical Guide */
+.uu-apply-track {
+  position: absolute;
+  left: 50%;
+  top: 35px;
+  bottom: 0;
+  width: 3px;
+  background-color: #A0AAB5;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.uu-apply-arrow-head {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 15px solid #A0AAB5;
+}
+
+/* Step Rows */
+.uu-apply-step-row {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 42px;
+  z-index: 2;
+}
+
+.uu-apply-step-row:last-child {
+  margin-bottom: 25px;
+}
+
+.uu-apply-card-col {
+  flex: 1 1 0;
+  display: flex;
+}
+
+.uu-apply-step-left .uu-apply-card-col {
+  justify-content: flex-end;
+}
+
+.uu-apply-step-right .uu-apply-card-col {
+  justify-content: flex-start;
+}
+
+.uu-apply-node-col {
+  flex: 0 0 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.uu-apply-spacer-col {
+  flex: 1 1 0;
+}
+
+/* Timeline Circular Nodes */
+.uu-apply-node {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #0E244A;
+  box-shadow: 0 0 0 4px #ffffff;
+  position: relative;
+  z-index: 3;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.uu-apply-step-row:hover .uu-apply-node {
+  transform: scale(1.15);
+  background-color: #003366;
+}
+
+/* Admission Step Cards */
+.uu-apply-card {
+  display: flex;
+  align-items: center;
+  background-color: #0B274C;
+  border-radius: 8px;
+  padding: 22px 26px;
+  gap: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 8px 24px rgba(11, 39, 76, 0.12), 0 2px 6px rgba(11, 39, 76, 0.06);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.uu-apply-card:hover {
+  transform: translateY(-4px);
+  background-color: #0E2F5B;
+  box-shadow: 0 14px 34px rgba(11, 39, 76, 0.2), 0 4px 10px rgba(11, 39, 76, 0.08);
+  color: #ffffff;
+}
+
+/* Card Pointing Chevrons */
+.uu-apply-step-left .uu-apply-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -14px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  border-left: 14px solid #0B274C;
+  transition: border-left-color 0.25s ease;
+}
+
+.uu-apply-step-left .uu-apply-card:hover::after {
+  border-left-color: #0E2F5B;
+}
+
+.uu-apply-step-right .uu-apply-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -14px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  border-right: 14px solid #0B274C;
+  transition: border-right-color 0.25s ease;
+}
+
+.uu-apply-step-right .uu-apply-card:hover::after {
+  border-right-color: #0E2F5B;
+}
+
+/* Card Icon Box */
+.uu-apply-icon-box {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  padding-right: 18px;
+}
+
+.uu-apply-icon-box svg {
+  display: block;
+}
+
+/* Card Content */
+.uu-apply-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.uu-apply-step-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--uu-logo-green, #80CE53);
+  margin-bottom: 2px;
+}
+
+.uu-apply-card-title {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.uu-apply-card-desc {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.48;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Development with International Outlook Banner */
+.uu-apply-outlook-banner {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid var(--uu-navy, #0E244A);
+  border-radius: 10px;
+  padding: 26px 32px;
+  margin-top: 45px;
+  box-shadow: 0 4px 16px rgba(14, 36, 74, 0.04);
+}
+
+.uu-apply-outlook-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(14, 36, 74, 0.06);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uu-apply-outlook-title {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #0E244A;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.uu-apply-outlook-desc {
+  font-size: 0.95rem;
+  color: #4A5568;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 767.98px) {
+  .uu-apply-section {
+    padding: 50px 0 60px;
+  }
+
+  .uu-apply-header {
+    margin-bottom: 30px;
+  }
+
+  .uu-apply-intro {
+    font-size: 0.95rem;
+    margin-top: 10px;
+  }
+
+  .uu-apply-timeline {
+    padding: 0 0 25px;
+  }
+
+  /* Move timeline guide to left */
+  .uu-apply-track {
+    left: 20px;
+    transform: none;
+    top: 25px;
+  }
+
+  .uu-apply-arrow-head {
+    transform: translateX(-50%);
+  }
+
+  .uu-apply-step-row {
+    display: block;
+    position: relative;
+    margin-bottom: 26px;
+    padding-left: 52px;
+  }
+
+  .uu-apply-spacer-col {
+    display: none;
+  }
+
+  .uu-apply-node-col {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+  }
+
+  .uu-apply-card-col {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .uu-apply-card {
+    max-width: 100%;
+    padding: 16px 18px;
+    gap: 14px;
+  }
+
+  /* On mobile, all cards point LEFT to the timeline line */
+  .uu-apply-step-left .uu-apply-card::after,
+  .uu-apply-step-right .uu-apply-card::after {
+    right: auto;
+    left: -12px;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: none;
+    border-right: 12px solid #0B274C;
+  }
+
+  .uu-apply-step-left .uu-apply-card:hover::after,
+  .uu-apply-step-right .uu-apply-card:hover::after {
+    border-right-color: #0E2F5B;
+  }
+
+  .uu-apply-icon-box {
+    width: 46px;
+    height: 46px;
+    padding-right: 14px;
+  }
+
+  .uu-apply-icon-box svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .uu-apply-card-title {
+    font-size: 1.125rem;
+  }
+
+  .uu-apply-card-desc {
+    font-size: 0.875rem;
+    line-height: 1.42;
+  }
+
+  .uu-apply-outlook-banner {
+    padding: 20px 18px;
+    margin-top: 30px;
+  }
+
+  .uu-apply-outlook-banner .btn-uu-navy-pill {
+    width: 100%;
+    justify-content: center;
+  }
+
+  
+}
+
+/* ==========================================================================
+   OFFICIAL UTTARANCHAL UNIVERSITY FOOTER & ADMISSIONS CTA
+   - Authentic Royal Navy Background (#001E50) matching user reference image
+   - Clean 2-Column Admissions CTA (Left: Info & Checks, Right: Action Buttons)
+   - Divider line and bottom bar matching reference image
+   ========================================================================== */
+.uu-footer {
+  background-color: #001E50;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+}
+
+.uu-footer-cta-wrap {
+  padding: 65px 0 55px;
+}
+
+.uu-footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(128, 206, 83, 0.12);
+  border: 1px solid rgba(128, 206, 83, 0.45);
+  color: #80CE53;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.uu-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #80CE53;
+  display: inline-block;
+  box-shadow: 0 0 8px rgba(128, 206, 83, 0.8);
+}
+
+.uu-footer-cta-title {
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.uu-footer-cta-desc {
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  max-width: 58ch;
+  margin-bottom: 22px;
+}
+
+.uu-footer-check-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+}
+
+.uu-footer-check-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.uu-check-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(128, 206, 83, 0.18);
+  color: #80CE53;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+/* Right Side Action Area */
+.uu-footer-cta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.uu-footer-action-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.uu-footer-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.btn-footer-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--uu-logo-green, #80CE53);
+  color: #001E50;
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(128, 206, 83, 0.35);
+  border: 1px solid var(--uu-logo-green, #80CE53);
+}
+
+.btn-footer-primary:hover {
+  background-color: #92DC65;
+  color: #001E50;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(128, 206, 83, 0.45);
+}
+
+.btn-footer-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+  font-family: var(--font-primary, 'Metropolis', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-footer-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+/* Bottom Bar - Exact match to user reference image */
+.uu-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  background-color: #001E50;
+  padding: 22px 0;
+}
+
+.uu-footer-logo-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.uu-footer-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.uu-footer-copyright {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.9rem;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 991.98px) {
+  .uu-footer-cta-wrap {
+    padding: 50px 0 40px;
+  }
+  .uu-footer-cta-right {
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+  .uu-footer-btn-group {
+    flex-direction: row;
+    max-width: 100%;
+  }
+  .btn-footer-primary,
+  .btn-footer-secondary {
+    flex: 1;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .uu-footer-cta-wrap {
+    padding: 40px 0 35px;
+  }
+  .uu-footer-btn-group {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .btn-footer-primary,
+  .btn-footer-secondary {
+    width: 100%;
+  }
+  .uu-footer-check-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .uu-footer-bottom {
+    text-align: center;
+  }
+  .uu-footer-logo-link {
+    margin-bottom: 12px;
+  }
+  .uu-footer-logo {
+    margin: 0 auto;
+  }
+  .uu-footer-copyright {
+    font-size: 0.84rem;
+  }
+}

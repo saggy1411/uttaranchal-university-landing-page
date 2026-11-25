@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uttaranchal University — Foundation & Design System</title>
+  <meta name="description" content="Uttaranchal University Official Landing Page - Global Design System and Foundation Architecture.">
+  <meta name="theme-color" content="#1E4174">
+
+  <!-- Preconnect to Google Fonts for Oswald & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- Preload Authentic Hero Campus Background -->
+  <link rel="preload" as="image" href="images/uttaranchal-university-hero-background.webp" fetchpriority="high">
+
+  <!-- Bootstrap 5 CSS (Local) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap Icons (CDN with local fallback capability) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Uttaranchal University Design System Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-uu-page">
+
+  <!-- =========================================================================
+       GLOBAL DESIGN SYSTEM FOUNDATION PREVIEW / BASE TEMPLATE
+       This validates colors, typography, buttons, cards, forms, and grid layout.
+       Individual landing page sections will be built step-by-step upon approval.
+       ========================================================================= -->
+
+  <!-- =========================================================================
+       NAVIGATION BAR (Official Uttaranchal University Header)
+       - Strict Brand Identity & Official Typography
+       - Left: University Crest Logo + NAAC Grade A+ Emblem
+       - Right: "ADMISSIONS OPEN 2026–2027"
+       - Responsive & Sticky
+       ========================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <nav class="navbar navbar-uu p-0 d-flex align-items-center justify-content-between" aria-label="Main Navigation">
+        <!-- University Logo with NAAC Grade A+ -->
+        <a href="#" class="navbar-brand-link" aria-label="Uttaranchal University Dehradun - NAAC Grade A+ Home">
+          <img 
+            src="images/uu-logo@2x.png" 
+            alt="Uttaranchal University Dehradun | NAAC Grade A+" 
+            class="navbar-brand-logo"
+            width="180" 
+            height="40"
+            loading="eager"
+            fetchpriority="high"
+          >
+        </a>
+
+        <!-- Admissions Open Highlight -->
+        <div class="nav-admissions-highlight" role="status" aria-label="Admissions Open 2026-2027">
+          <span class="nav-admissions-text">ADMISSIONS OPEN</span>
+          <span class="nav-admissions-year">2026–2027</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================================
+         2. HERO ADMISSIONS SECTION
+         - Background: Authentic Uttaranchal University campus background + dark multi-stop brand overlay
+         - Left Column (Downward Left Corner): Admissions badge, H1 Heading, Lead paragraph
+         - Right Column: High-converting Registration Form Card
+         - Bottom: Elegant brand curve ribbon
+         ========================================================================= -->
+    <section class="hero-section" id="heroSection">
+      <div class="container position-relative" style="z-index: 3;">
+        <div class="row align-items-end g-4 py-3 py-lg-4">
+          <!-- Left Column: Information firmly positioned in last left-side downward corner -->
+          <div class="col-lg-7 col-xl-7 hero-left-col pt-4 pt-lg-5 pb-2 pb-lg-3">
+            <!-- Admissions Badge -->
+            <div class="hero-badge-wrap">
+              <span class="hero-admissions-badge">
+                <span class="badge-accent-bar"></span>
+                ADMISSIONS OPEN 2026–2027
+              </span>
+            </div>
+
+            <!-- Hero Heading with Logo Green Highlight -->
+            <h1 class="hero-heading">
+              Discover<br>
+              Your Potential at<br>
+              <span class="text-brand-green">Uttaranchal University</span>
+            </h1>
+
+            <!-- Hero Supporting Description -->
+            <p class="hero-lead">
+              Gain industry-ready skills, learn from experienced faculty and build a future with global opportunities at Uttaranchal University.
+            </p>
+          </div>
+
+          <!-- Right Column: Registration / Lead Capture Card -->
+          <div class="col-lg-5 col-xl-5 hero-right-col">
+            <div class="hero-form-card" id="heroLeadForm">
+              <!-- Header with Royal/Navy Gradient and Green Accent Line -->
+              <div class="hero-form-header">
+                <span class="hero-form-eyebrow">Registration Form</span>
+                <h3 class="hero-form-title">Take the First Step<br>Toward Success</h3>
+                <div class="hero-form-accent-line"></div>
+              </div>
+
+              <!-- White Inner Container for High Usability & Readability -->
+              <div class="hero-form-body">
+                <form class="needs-validation" novalidate id="admissionsHeroForm">
+                  <!-- Row 1: Full Name & Email -->
+                  <div class="row g-2 mb-2">
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control-uu" id="heroFullName" placeholder="Enter Full Name*" required>
+                      <div class="invalid-feedback">Full name is required.</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="email" class="form-control form-control-uu" id="heroEmail" placeholder="Enter Email ID*" required>
+                      <div class="invalid-feedback">Valid email is required.</div>
+                    </div>
+                  </div>
+
+                  <!-- Row 2: Mobile Number with Country Dial Code -->
+                  <div class="mb-2">
+                    <div class="input-group input-group-uu">
+                      <button class="btn btn-country-code dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span>🇮🇳</span>
+                        <span>+91</span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="#">🇮🇳 India (+91)</a></li>
+                        <li><a class="dropdown-item" href="#">🇳🇵 Nepal (+977)</a></li>
+                        <li><a class="dropdown-item" href="#">🇧🇹 Bhutan (+975)</a></li>
+                        <li><a class="dropdown-item" href="#">🇧🇩 Bangladesh (+880)</a></li>
+                        <li><a class="dropdown-item" href="#">🇦🇪 UAE (+971)</a></li>
+                      </ul>
+                      <input type="tel" class="form-control form-control-uu" id="heroMobile" placeholder="Mobile Number*" pattern="[0-9]{10}" maxlength="10" required>
+                    </div>
+                    <div class="invalid-feedback">10-digit mobile number required.</div>
+                  </div>
+
+                  <!-- Row 3: State & Level -->
+                  <div class="row g-2 mb-2">
+                    <div class="col-sm-6">
+                      <select class="form-select form-select-uu" id="heroState" required>
+                        <option value="" selected disabled>Select State*</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="Delhi NCR">Delhi NCR</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Other">Other State</option>
+                      </select>
+                      <div class="invalid-feedback">Select state.</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <select class="form-select form-select-uu" id="heroLevel" required>
+                        <option value="" selected disabled>Select Level*</option>
+                        <option value="Undergraduate">Undergraduate (UG)</option>
+                        <option value="Postgraduate">Postgraduate (PG)</option>
+                        <option value="Diploma">Diploma / Polytechnic</option>
+                        <option value="Doctoral">Doctoral (Ph.D.)</option>
+                      </select>
+                      <div class="invalid-feedback">Select level.</div>
+                    </div>
+                  </div>
+
+                  <!-- Row 4: Discipline & Program -->
+                  <div class="row g-2 mb-3">
+                    <div class="col-sm-6">
+                      <select class="form-select form-select-uu" id="heroDiscipline" required>
+                        <option value="" selected disabled>Select Discipline*</option>
+                        <option value="Engineering">Engineering &amp; Technology</option>
+                        <option value="Management">Management &amp; Commerce</option>
+                        <option value="Law">Law (Law College Dehradun)</option>
+                        <option value="ComputerApplications">Computer Applications / IT</option>
+                        <option value="Pharmacy">Pharmacy &amp; Health</option>
+                        <option value="Agriculture">Agriculture &amp; Allied</option>
+                        <option value="AppliedSciences">Applied Sciences</option>
+                      </select>
+                      <div class="invalid-feedback">Select discipline.</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <select class="form-select form-select-uu" id="heroProgram" required>
+                        <option value="" selected disabled>Select Program*</option>
+                        <option value="BTech-CSE">B.Tech CSE</option>
+                        <option value="BTech-AIML">B.Tech AI &amp; ML</option>
+                        <option value="MBA">MBA (Dual Specialization)</option>
+                        <option value="BALLB">BA LLB (Hons)</option>
+                        <option value="BCA">BCA (Cyber / Cloud)</option>
+                        <option value="BPharm">B.Pharm</option>
+                        <option value="BScAgri">B.Sc (Hons) Agriculture</option>
+                      </select>
+                      <div class="invalid-feedback">Select program.</div>
+                    </div>
+                  </div>
+
+                  <!-- Checkbox Consent -->
+                  <div class="form-check hero-consent-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="heroConsentCheck" checked required>
+                    <label class="form-check-label text-muted" for="heroConsentCheck">
+                      I authorize Uttaranchal University to contact me with updates and notifications via Email, SMS, WhatsApp and Call. This will override the registry on DND / NDNC.
+                    </label>
+                  </div>
+
+                  <!-- Primary CTA Button -->
+                  <button type="submit" class="btn btn-hero-submit w-100 mb-2">
+                    <span>Submit Registration</span>
+                    <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+
+                  <!-- Secondary CTA Button -->
+                  <a href="#login" class="btn btn-hero-already w-100">
+                    Already Registered?
+                  </a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organic Brand Curve Ribbon at Bottom -->
+      <div class="hero-bottom-curve" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,35 C380,68 820,12 1440,48 L1440,60 L0,60 Z" fill="#80CE53" opacity="0.95"/>
+          <path d="M0,45 C450,65 920,24 1440,55 L1440,60 L0,60 Z" fill="#1E4174"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. INDUSTRY-TOP RECRUITERS SECTION (Infinite Right-to-Left Loop)
+         - Title: "Industry-Top Recruiters" with Logo Green accent line
+         - 26 Recruiter Logos from images/recruters/
+         - Continuous seamless right-to-left marquee loop with hover-pause
+         - Manual navigation controls (< and > arrows)
+         ========================================================================= -->
+    <section class="recruiters-section" id="recruitersSection">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="recruiters-header-wrap">
+          <h2 class="recruiters-heading">Industry-Top Recruiters</h2>
+          <div class="recruiters-accent-bar" aria-hidden="true"></div>
+        </div>
+
+        <!-- Carousel Shell with Controls and Marquee Track -->
+        <div class="recruiters-carousel-shell">
+          <!-- Prev Button -->
+          <button class="recruiter-nav-btn prev-btn" id="recruiterPrevBtn" type="button" aria-label="Previous Recruiters">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+
+          <!-- Marquee Container -->
+          <div class="recruiters-marquee-container" id="recruitersMarquee">
+            <div class="recruiters-marquee-track" id="recruitersTrack">
+              <!-- Set 1: Logos 01 to 26 -->
+              <div class="recruiter-logo-card"><img src="images/recruters/01.webp" alt="Recruiter Logo 01" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/02.webp" alt="Recruiter Logo 02" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/03.webp" alt="Recruiter Logo 03" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/04.webp" alt="Recruiter Logo 04" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/05.webp" alt="Recruiter Logo 05" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/06.webp" alt="Recruiter Logo 06" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/07.webp" alt="Recruiter Logo 07" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/08.webp" alt="Recruiter Logo 08" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/09.webp" alt="Recruiter Logo 09" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/10.webp" alt="Recruiter Logo 10" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/11.webp" alt="Recruiter Logo 11" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/12.webp" alt="Recruiter Logo 12" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/13.webp" alt="Recruiter Logo 13" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/14.webp" alt="Recruiter Logo 14" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/15.webp" alt="Recruiter Logo 15" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/16.webp" alt="Recruiter Logo 16" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/17.webp" alt="Recruiter Logo 17" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/18.webp" alt="Recruiter Logo 18" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/19.webp" alt="Recruiter Logo 19" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/20.webp" alt="Recruiter Logo 20" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/21.webp" alt="Recruiter Logo 21" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/22.webp" alt="Recruiter Logo 22" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/23.webp" alt="Recruiter Logo 23" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/24.webp" alt="Recruiter Logo 24" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/25.webp" alt="Recruiter Logo 25" loading="lazy"></div>
+              <div class="recruiter-logo-card"><img src="images/recruters/26.webp" alt="Recruiter Logo 26" loading="lazy"></div>
+
+              <!-- Set 2: Duplicate for Continuous Glitch-Free Seamless Infinite Loop -->
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/01.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/02.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/03.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/04.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/05.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/06.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/07.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/08.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/09.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/10.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/11.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/12.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/13.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/14.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/15.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/16.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/17.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/18.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/19.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/20.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/21.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/22.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/23.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/24.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/25.webp" alt="" loading="lazy"></div>
+              <div class="recruiter-logo-card" aria-hidden="true"><img src="images/recruters/26.webp" alt="" loading="lazy"></div>
+            </div>
+          </div>
+
+          <!-- Next Button -->
+          <button class="recruiter-nav-btn next-btn" id="recruiterNextBtn" type="button" aria-label="Next Recruiters">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. WHY CHOOSE UTTARANCHAL UNIVERSITY (OUR USP SECTION)
+         - Left Header: "OUR USP", "Why Choose Uttaranchal University?", "Apply Now →"
+         - Right Header: Subtitle paragraph + Animated "25+ Years of Academic Excellence" Counter
+         - 8 Rich USP Cards: Pop-up interactive hover/touch effect
+         ========================================================================= -->
+    <section class="usp-section" id="uspSection">
+      <div class="container">
+        <!-- Section Header Row -->
+        <div class="row align-items-center g-4">
+          <!-- Left Header Column -->
+          <div class="col-lg-6">
+            <!-- <div class="usp-eyebrow">
+              <span class="usp-eyebrow-line"></span>
+              OUR USP
+            </div> -->
+            <h2 class="usp-heading">
+              Why Choose<br class="d-none d-lg-block">
+              <span class="text-brand-green">Uttaranchal University?</span>
+            </h2>
+            <!-- Subtitle for mobile view (flows naturally below headline) -->
+            <p class="usp-subtitle-text d-lg-none">
+              A future-ready learning environment that blends academic excellence, industry exposure and holistic development.
+            </p>
+            <!-- Desktop Action Button -->
+            <div class="d-none d-lg-block">
+              <a href="#heroLeadForm" class="btn btn-uu-navy-pill">
+                <span>Apply Now</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Header Column with Animated Counter -->
+          <div class="col-lg-6">
+            <div class="usp-header-divider">
+              <!-- Subtitle for desktop view -->
+              <p class="usp-subtitle-text d-none d-lg-block">
+                A future-ready learning environment that blends academic excellence, industry exposure and holistic development.
+              </p>
+              <div class="usp-counter-box">
+                <div class="usp-counter-metric" aria-label="25 Plus Years of Academic Excellence">
+                  <span class="usp-counter-number" data-target="25">0</span>
+                  <span class="usp-counter-plus">+</span>
+                </div>
+                <h3 class="usp-counter-label">Years of Academic Excellence</h3>
+              </div>
+
+              <!-- Mobile Action Button (sits cleanly after the 25+ metric) -->
+              <div class="d-lg-none mt-3 pt-2">
+                <a href="#heroLeadForm" class="btn btn-uu-navy-pill w-100 justify-content-center">
+                  <span>Apply Now</span>
+                  <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 USP Cards Grid (2 rows x 4 columns) -->
+        <div class="row g-3 g-lg-4 usp-cards-grid">
+          <!-- Card 1: Industry-Aligned Programs (Green Theme) -->
+          <div class="col-6 col-md-6 col-lg-3">
+            <div class="usp-card usp-card-green" tabindex="0" role="region" aria-label="Industry-Aligned Programs">
+              <img src="images/usp/usp-bg-1.jpg" alt="" class="usp-card-bg" loading="lazy">
+              <div class="usp-card-overlay"></div>
+              <div class="usp-card-content">
+                <h4 class="usp-card-title">Industry-Aligned<br>Programs</h4>
+                <div class="usp-card-bar"></div>
+                <p class="usp-card-desc">Curriculum designed with real-world industry needs.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Experienced Faculty (Navy Theme) -->
+          <div class="col-6 col-md-6 col-lg-3">
+            <div class="usp-card usp-card-navy" tabindex="0" role="region" aria-label="Experienced Faculty">
+              <img src="images/usp/usp-bg-2.jpg" alt="" class="usp-card-bg" loading="lazy">
+              <div class="usp-card-overlay"></div>
+              <div class="usp-card-content">
+                <h4 class="usp-card-title">Experienced<br>Faculty</h4>
+                <div class="usp-card-bar"></div>
+                <p class="usp-card-desc">Learn from academicians and industry experts.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Research & Innovation (Navy Theme) -->
+          <div class="col-6 col-md-6 col-lg-3">
+            <div class="usp-card usp-card-navy" tabindex="0" role="region" aria-label="Research and Innovation">
+              <img src="images/usp/usp-bg-3.jpg" alt="" class="usp-card-bg" loading="lazy">
+              <div class="usp-card-overlay"></div>
+              <div class="usp-card-content">
+                <h4 class="usp-card-title">Research &amp;<br>Innovation</h4>
+                <div class="usp-card-bar"></div>
+                <p class="usp-card-desc">Opportunities for research, projects and start-up support.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Modern Campus (Navy Theme) -->
+          <div class="col-6 col-md-6 col-lg-3">
+            <div class="usp-card usp-card-navy" tabindex="0" role="region" aria-label="Modern Campus">
+              <img src="images/usp/usp-bg-4.jpg" alt="" class="usp-card-bg" loading="lazy">
+              <div class="usp-card-overlay"></div>
+              <div class="usp-card-content">
+                <h4 class="usp-card-title">Modern<br>Campus</h4>
+                <div class="usp-card-bar"></div>
+                <p class="usp-card-desc">World-class infrastructure and vibrant campus life.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Strong Placements (Navy Theme) -->
+          <div class="col-6 col-md-6 col-lg-3">
+            <div class="usp-card usp-card-navy" tabindex="0" role="region" aria-label="Strong Placements">
+              <img src="images/usp/usp-bg-5.jpg" alt="" class="usp-card-bg" loading="lazy">
+              <div class="usp-card-overlay"></div>
+              <div class="usp-card-content">
+                <h4 class="usp-card-title">Strong<br>Placements</h4>
+                <div class="usp-card-bar"></div>
+                <p class="usp-card-desc">Career support with top recruiters and internships.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Holistic Development (Navy Theme) -->
+          <div class="col-6 col-md-6 col-lg-3">
+            <div class="usp-card usp-card-navy" tabindex="0" role="region" aria-label="Holistic Development">
+              <img src="images/usp/usp-bg-6.jpg" alt="" class="usp-card-bg" loading="lazy">
+              <div class="usp-card-overlay"></div>
+              <div class="usp-card-content">
+                <h4 class="usp-card-title">Holistic<br>Development</h4>
+                <div class="usp-card-bar"></div>
+                <p class="usp-card-desc">Focus on academics, leadership, wellness and life skills.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: Global Exposure (Green Theme) -->
+          <div class="col-6 col-md-6 col-lg-3">
+            <div class="usp-card usp-card-green" tabindex="0" role="region" aria-label="Global Exposure">
+              <img src="images/usp/usp-bg-7.jpg" alt="" class="usp-card-bg" loading="lazy">
+              <div class="usp-card-overlay"></div>
+              <div class="usp-card-content">
+                <h4 class="usp-card-title">Global<br>Exposure</h4>
+                <div class="usp-card-bar"></div>
+                <p class="usp-card-desc">International collaborations and exchange opportunities.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8: Recognized & Trusted (Navy Theme) -->
+          <div class="col-6 col-md-6 col-lg-3">
+            <div class="usp-card usp-card-navy" tabindex="0" role="region" aria-label="Recognized and Trusted">
+              <img src="images/usp/usp-bg-8.jpg" alt="" class="usp-card-bg" loading="lazy">
+              <div class="usp-card-overlay"></div>
+              <div class="usp-card-content">
+                <h4 class="usp-card-title">Recognized<br>&amp; Trusted</h4>
+                <div class="usp-card-bar"></div>
+                <p class="usp-card-desc">UGC-recognized with a legacy of academic excellence.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. PROGRAMS FOR YOU (ACADEMIC PROGRAMS BROWSER SECTION)
+         - Header: "OUR PROGRAMS", "Programs For You", Subtitle
+         - Toolbar: Degree Filters (All, UG, PG, Diploma, Certificate) + Search Input
+         - 2-Column Explorer:
+           - Left: 11 Schools Navigation List (with icons and chevrons)
+           - Right: Active School Header Banner (with campus facade) + Programs List with durations
+         - Other Schools & Programs Banner:
+           - Highlights (25+ Years, 500+ Faculty, 100+ Acres)
+           - "Explore All Programs →" CTA Button
+         ========================================================================= -->
+    <section class="programs-section" id="programsSection">
+      <div class="container text-center">
+        <!-- Eyebrow -->
+        <!-- <div class="programs-eyebrow">
+          <span class="programs-eyebrow-line"></span> -->
+          <!-- <span>OUR PROGRAMS</span> -->
+          <!-- <span class="programs-eyebrow-line"></span>
+        </div> -->
+
+        <!-- Section Heading -->
+        <h2 class="programs-heading">
+          Programs <span class="text-brand-green">For You</span>
+        </h2>
+        <!-- <p class="programs-subtitle">
+          The Uttaranchal University offers around 100+ Multidisciplinary Study Programs. Browse through our diverse selection.
+        </p> -->
+
+        <!-- Filter & Action Toolbar -->
+        <div class="programs-toolbar">
+          <!-- Degree Level Tabs -->
+          <div class="programs-filter-tabs" role="tablist" aria-label="Program Levels">
+            <button class="program-filter-btn active" data-level="all" type="button">All Programs</button>
+            <button class="program-filter-btn" data-level="ug" type="button">Undergraduate</button>
+            <button class="program-filter-btn" data-level="pg" type="button">Postgraduate</button>
+            <button class="program-filter-btn" data-level="diploma" type="button">Diploma</button>
+            <button class="program-filter-btn" data-level="certificate" type="button">Certificate</button>
+          </div>
+
+          <!-- Explore All Programs CTA Button -->
+          <div class="programs-toolbar-action">
+            <a href="#heroLeadForm" class="btn-explore-all">
+              <span>Explore All Programs</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2-Column Program Browser Grid -->
+        <div class="row g-4 align-items-stretch">
+          <!-- Left Column: Schools Navigation List (11 Schools) -->
+          <div class="col-lg-4 text-start">
+            <div class="schools-sidebar-card" role="tablist" aria-label="University Schools">
+              <button class="school-nav-btn active" data-school="law" type="button">
+                <span>Law College Dehradun</span>
+                <i class="bi bi-chevron-right school-nav-chevron"></i>
+              </button>
+
+              <button class="school-nav-btn" data-school="sals" type="button">
+                <span>School of Applied &amp; Life Sciences</span>
+                <i class="bi bi-chevron-right school-nav-chevron"></i>
+              </button>
+
+              <button class="school-nav-btn" data-school="uit" type="button">
+                <span>Uttaranchal Institute of Technology</span>
+                <i class="bi bi-chevron-right school-nav-chevron"></i>
+              </button>
+
+              <button class="school-nav-btn" data-school="uim" type="button">
+                <span>Uttaranchal Institute of Management</span>
+                <i class="bi bi-chevron-right school-nav-chevron"></i>
+              </button>
+
+              <button class="school-nav-btn" data-school="uips" type="button">
+                <span>Uttaranchal Institute of Pharmaceutical Sciences</span>
+                <i class="bi bi-chevron-right school-nav-chevron"></i>
+              </button>
+
+              <button class="school-nav-btn" data-school="agriculture" type="button">
+                <span>School of Agriculture</span>
+                <i class="bi bi-chevron-right school-nav-chevron"></i>
+              </button>
+
+              <button class="school-nav-btn" data-school="liberal-arts" type="button">
+                <span>School of Liberal Arts</span>
+                <i class="bi bi-chevron-right school-nav-chevron"></i>
+              </button>
+
+              <button class="school-nav-btn" data-school="nursing" type="button">
+                <span>Uttaranchal College of Nursing</span>
+                <i class="bi bi-chevron-right school-nav-chevron"></i>
+              </button>
+
+              <button class="school-nav-btn" data-school="health-sciences" type="button">
+                <span>Uttaranchal College of Health Sciences</span>
+                <i class="bi bi-chevron-right school-nav-chevron"></i>
+              </button>
+
+              <button class="school-nav-btn" data-school="computing" type="button">
+                <span>Uttaranchal School of Computing Sciences</span>
+                <i class="bi bi-chevron-right school-nav-chevron"></i>
+              </button>
+
+              <button class="school-nav-btn" data-school="hotel-management" type="button">
+                <span>Uttaranchal School of Hotel &amp; Hospitality Management</span>
+                <i class="bi bi-chevron-right school-nav-chevron"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Active School Program Details Card + Other Schools & Programs -->
+          <div class="col-lg-8 text-start">
+            <div class="program-details-card">
+              <!-- Banner Header with Campus Facade & Green Accent Bar -->
+              <div class="program-card-header">
+                <h3 class="program-card-header-title" id="activeSchoolTitle">Law College Dehradun</h3>
+                <div class="program-card-header-bar"></div>
+              </div>
+
+              <!-- Programs List Container -->
+              <div class="program-list-body" id="programsListBody">
+                <!-- Dynamically rendered via initProgramsExplorer() -->
+              </div>
+            </div>
+
+            <!-- Highlights Stat Card with Countable Numbers (Label on top, Numbers below) -->
+            <div class="programs-stats-card mt-4">
+              <div class="row text-center text-md-start g-3 g-md-4 align-items-center">
+                <!-- Stat 1: Years of Excellence -->
+                <div class="col-md-4 stat-divider">
+                  <div class="stat-metric-block"> 
+                    <div class="stat-metric-val">
+                      <span class="counter-number" data-target="25">0</span><span class="stat-metric-plus">+</span>
+                    </div>
+                    <span class="stat-metric-desc">Years of Excellence</span>
+                  </div>
+                </div>
+
+                <!-- Stat 2: Faculty members -->
+                <div class="col-md-4 stat-divider">
+                  <div class="stat-metric-block">
+                    <div class="stat-metric-val">
+                      <span class="counter-number" data-target="500">0</span><span class="stat-metric-plus">+</span>
+                    </div>
+                     <span class="stat-metric-desc">Faculty members</span>
+                  </div>
+                </div>
+
+                <!-- Stat 3: Acres Campus area -->
+                <div class="col-md-4">
+                  <div class="stat-metric-block">
+                    <div class="stat-metric-val">
+                      <span class="counter-number" data-target="100">0</span><span class="stat-metric-plus">+</span>
+                    </div>
+                    <span class="stat-metric-desc">Acres Campus area</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. CAMPUS LIFE GALLERY SECTION (3D COVERFLOW CAROUSEL)
+         - Header: "CAMPUS LIFE AT UTTARANCHAL UNIVERSITY", "Beyond the Classroom. Into Experiences."
+         - Subtitle: "From cultural celebrations and sports competitions..."
+         - 10 Cards 3D Coverflow Carousel
+         - Navigation: Prev / Next Buttons + Pagination Dots + Keyboard & Touch Swipe
+         ========================================================================= -->
+    <section class="gallery-section" id="gallerySection">
+      <div class="container">
+        <!-- Section Header Block -->
+        <div class="gallery-header-block text-start">
+          <!-- <div class="gallery-accent-bar"></div> -->
+          <h2 class="gallery-heading">
+            Beyond the Classroom. <span class="text-brand-green">Into Experiences.</span>
+          </h2>
+          <p class="gallery-subtitle">
+            From cultural celebrations and sports competitions to academic events and student achievements, experience every moment that makes university life memorable.
+          </p>
+        </div>
+      </div>
+
+      <!-- Full-Width 3D Curved Cylindrical Arc Carousel Stage -->
+      <div class="curved-arc-stage-wrapper" id="curvedArcStage">
+        <!-- Left & Right Gradient Edge Vignettes (Matching Reference Image) -->
+        <div class="curved-arc-fade-left" aria-hidden="true"></div>
+        <div class="curved-arc-fade-right" aria-hidden="true"></div>
+
+        <!-- Prev / Next Navigation Buttons -->
+        <button class="curved-arc-nav-btn prev-btn" id="curvedArcPrevBtn" type="button" aria-label="Previous Slide">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="curved-arc-nav-btn next-btn" id="curvedArcNextBtn" type="button" aria-label="Next Slide">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+
+        <!-- 3D Perspective Viewport -->
+        <div class="curved-arc-viewport" id="curvedArcViewport" aria-label="Campus Life 3D Panoramic Gallery" role="region">
+          <div class="curved-arc-track" id="curvedArcTrack">
+
+            <!-- Card 1: Cultural Festivals -->
+            <div class="curved-arc-card" data-index="0" role="group" aria-label="Cultural Festivals">
+              <div class="curved-arc-card-inner">
+                <img src="images/gallery/gallery-1.jpg" alt="Cultural Festivals at Uttaranchal University" class="curved-arc-img" loading="lazy">
+                <div class="curved-arc-overlay"></div>
+                <div class="curved-arc-content">
+                  <h3 class="curved-arc-title">Cultural Festivals</h3>
+                  <div class="curved-arc-bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Sports Competitions -->
+            <div class="curved-arc-card" data-index="1" role="group" aria-label="Sports Competitions">
+              <div class="curved-arc-card-inner">
+                <img src="images/gallery/gallery-2.jpg" alt="Sports Competitions" class="curved-arc-img" loading="lazy">
+                <div class="curved-arc-overlay"></div>
+                <div class="curved-arc-content">
+                  <h3 class="curved-arc-title">Sports Competitions</h3>
+                  <div class="curved-arc-bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Workshops & Guest Lectures -->
+            <div class="curved-arc-card" data-index="2" role="group" aria-label="Workshops and Guest Lectures">
+              <div class="curved-arc-card-inner">
+                <img src="images/gallery/gallery-3.jpg" alt="Workshops and Guest Lectures" class="curved-arc-img" loading="lazy">
+                <div class="curved-arc-overlay"></div>
+                <div class="curved-arc-content">
+                  <h3 class="curved-arc-title">Workshops &amp; Guest Lectures</h3>
+                  <div class="curved-arc-bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Innovation & Exhibitions -->
+            <div class="curved-arc-card" data-index="3" role="group" aria-label="Innovation and Exhibitions">
+              <div class="curved-arc-card-inner">
+                <img src="images/gallery/gallery-4.jpg" alt="Innovation and Exhibitions" class="curved-arc-img" loading="lazy">
+                <div class="curved-arc-overlay"></div>
+                <div class="curved-arc-content">
+                  <h3 class="curved-arc-title">Innovation &amp; Exhibitions</h3>
+                  <div class="curved-arc-bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5: Student Clubs & Activities -->
+            <div class="curved-arc-card" data-index="4" role="group" aria-label="Student Clubs and Activities">
+              <div class="curved-arc-card-inner">
+                <img src="images/gallery/gallery-5.jpg" alt="Student Clubs and Activities" class="curved-arc-img" loading="lazy">
+                <div class="curved-arc-overlay"></div>
+                <div class="curved-arc-content">
+                  <h3 class="curved-arc-title">Student Clubs &amp; Activities</h3>
+                  <div class="curved-arc-bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6: Convocation & Ceremonies -->
+            <div class="curved-arc-card" data-index="5" role="group" aria-label="Convocation and Ceremonies">
+              <div class="curved-arc-card-inner">
+                <img src="images/gallery/gallery-6.jpg" alt="Convocation and Ceremonies" class="curved-arc-img" loading="lazy">
+                <div class="curved-arc-overlay"></div>
+                <div class="curved-arc-content">
+                  <h3 class="curved-arc-title">Convocation &amp; Ceremonies</h3>
+                  <div class="curved-arc-bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7: Annual Events -->
+            <div class="curved-arc-card" data-index="6" role="group" aria-label="Annual Events">
+              <div class="curved-arc-card-inner">
+                <img src="images/gallery/gallery-7.jpg" alt="Annual Events" class="curved-arc-img" loading="lazy">
+                <div class="curved-arc-overlay"></div>
+                <div class="curved-arc-content">
+                  <h3 class="curved-arc-title">Annual Events</h3>
+                  <div class="curved-arc-bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8: Awards & Achievements -->
+            <div class="curved-arc-card" data-index="7" role="group" aria-label="Awards and Achievements">
+              <div class="curved-arc-card-inner">
+                <img src="images/gallery/gallery-8.jpg" alt="Awards and Achievements" class="curved-arc-img" loading="lazy">
+                <div class="curved-arc-overlay"></div>
+                <div class="curved-arc-content">
+                  <h3 class="curved-arc-title">Awards &amp; Achievements</h3>
+                  <div class="curved-arc-bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 9: Tech Fests & Research -->
+            <div class="curved-arc-card" data-index="8" role="group" aria-label="Tech Fests and Research">
+              <div class="curved-arc-card-inner">
+                <img src="images/gallery/gallery-9.jpg" alt="Tech Fests and Research" class="curved-arc-img" loading="lazy">
+                <div class="curved-arc-overlay"></div>
+                <div class="curved-arc-content">
+                  <h3 class="curved-arc-title">Tech Fests &amp; Research</h3>
+                  <div class="curved-arc-bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 10: Campus Life & Recreation -->
+            <div class="curved-arc-card" data-index="9" role="group" aria-label="Campus Life and Recreation">
+              <div class="curved-arc-card-inner">
+                <img src="images/gallery/gallery-10.jpg" alt="Campus Life and Recreation" class="curved-arc-img" loading="lazy">
+                <div class="curved-arc-overlay"></div>
+                <div class="curved-arc-content">
+                  <h3 class="curved-arc-title">Campus Life &amp; Recreation</h3>
+                  <div class="curved-arc-bar"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Ambient Floor Horizon Glow -->
+        <div class="curved-arc-floor-glow"></div>
+      </div>
+
+      <!-- Pagination Indicators -->
+      <!-- <div class="curved-arc-pagination" id="curvedArcPagination" role="tablist" aria-label="Gallery slides"></div> -->
+    </section>
+
+
+    <!-- =========================================================================
+         7. STUDENT FEEDBACK & TESTIMONIALS SECTION
+         - Heading: "What Our Student Feedback Says" + Logo Green Accent Bar
+         - 4 Cards Automatic Carousel (Auto-Change + Prev/Next Controls + Indicators)
+         - 3D Floating Pen Animation with Subtle Depth Effect & Mouse Parallax
+         ========================================================================= -->
+    <section class="testimonials-section" id="testimonialsSection">
+      <div class="container">
+        <!-- Section Heading Block -->
+        <div class="testimonials-header-block text-start">
+          <h2 class="testimonials-heading">
+            What Our Student <span class="text-brand-green">Feedback Says</span>
+          </h2>
+          <div class="testimonials-accent-bar"></div>
+        </div>
+
+        <!-- 4-Cards Automatic Carousel Slider Shell -->
+        <div class="testimonials-carousel-shell" id="testimonialsShell">
+          <div class="testimonials-slider" id="testimonialsSlider">
+
+            <!-- Card 1: Sarah Taylor (BBA Student) -->
+            <div class="testimonial-slide active" data-slide="0">
+              <div class="testimonial-card-main">
+                <div class="row g-0 align-items-center">
+                  <!-- Left Feedback Content -->
+                  <div class="col-lg-7 testimonial-content-col">
+                    <div class="testimonial-card-body">
+                      <!-- Top Row: Student Avatar + Divider + University Logo -->
+                      <div class="testimonial-top-row">
+                        <div class="testimonial-avatar-wrapper">
+                          <img src="images/testimonials/avatar-1.png" alt="Sarah Taylor" class="testimonial-avatar-img" onerror="this.src='images/usp/usp-bg-7.jpg'">
+                        </div>
+                        <div class="testimonial-logo-divider"></div>
+                        <div class="testimonial-brand-logo">
+                          <img src="images/uu-logo.png" alt="Uttaranchal University Logo" class="testimonial-uu-logo">
+                        </div>
+                      </div>
+
+                      <!-- Student Quote with Green Indicator -->
+                      <div class="testimonial-quote-block">
+                        <span class="testimonial-quote-bar"></span>
+                        <p class="testimonial-quote-text">
+                          Uttaranchal University provides a perfect blend of quality education, practical learning and industry exposure. The supportive faculty, modern infrastructure and vibrant campus life make the learning journey truly rewarding.
+                        </p>
+                      </div>
+
+                      <!-- Bottom Row: Student Info & Arrow Navigation -->
+                      <div class="testimonial-bottom-row">
+                        <div class="testimonial-author-info">
+                          <h4 class="testimonial-author-name">Sarah Taylor</h4>
+                          <span class="testimonial-author-role">BBA Student</span>
+                        </div>
+                        <div class="testimonial-nav-arrows">
+                          <button class="testimonial-arrow-btn prev-btn" type="button" aria-label="Previous Testimonial">
+                            <i class="bi bi-arrow-left"></i>
+                          </button>
+                          <button class="testimonial-arrow-btn next-btn" type="button" aria-label="Next Testimonial">
+                            <i class="bi bi-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right Visual Showcase with Floating 3D Pen -->
+                  <div class="col-lg-5 testimonial-visual-col">
+                    <div class="testimonial-visual-box">
+                      <!-- Organic Blue Blob Background -->
+                      <div class="testimonial-blob-bg"></div>
+                      <span class="blob-dot blob-dot-1"></span>
+                      <span class="blob-dot blob-dot-2"></span>
+                      <span class="blob-dot blob-dot-3"></span>
+                      
+                      <!-- Student Photo -->
+                      <div class="testimonial-student-photo-wrap">
+                        <img src="images/testimonials/student-visual-1.png" alt="Student Studying at Uttaranchal University" class="testimonial-student-img" onerror="this.src='images/usp/usp-bg-5.jpg'">
+                      </div>
+
+                      <!-- 3D Floating Pen with Depth Levitation -->
+                      <div class="floating-pen-wrapper">
+                        <img src="images/testimonials/floating-pen.svg" alt="Floating Creative Pen" class="floating-pen-img">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Aman Sharma (B.Tech CSE) -->
+            <div class="testimonial-slide" data-slide="1">
+              <div class="testimonial-card-main">
+                <div class="row g-0 align-items-center">
+                  <div class="col-lg-7 testimonial-content-col">
+                    <div class="testimonial-card-body">
+                      <div class="testimonial-top-row">
+                        <div class="testimonial-avatar-wrapper">
+                          <img src="images/testimonials/avatar-2.png" alt="Aman Sharma" class="testimonial-avatar-img">
+                        </div>
+                        <div class="testimonial-logo-divider"></div>
+                        <div class="testimonial-brand-logo">
+                          <img src="images/uu-logo.png" alt="Uttaranchal University Logo" class="testimonial-uu-logo">
+                        </div>
+                      </div>
+                      <div class="testimonial-quote-block">
+                        <span class="testimonial-quote-bar"></span>
+                        <p class="testimonial-quote-text">
+                          The industry-aligned curriculum and hands-on coding labs at Uttaranchal Institute of Technology prepared me for real engineering challenges. Mentorship from faculty and global hackathons helped me land my dream software role.
+                        </p>
+                      </div>
+                      <div class="testimonial-bottom-row">
+                        <div class="testimonial-author-info">
+                          <h4 class="testimonial-author-name">Aman Sharma</h4>
+                          <span class="testimonial-author-role">B.Tech Computer Science &amp; Engineering</span>
+                        </div>
+                        <div class="testimonial-nav-arrows">
+                          <button class="testimonial-arrow-btn prev-btn" type="button" aria-label="Previous Testimonial">
+                            <i class="bi bi-arrow-left"></i>
+                          </button>
+                          <button class="testimonial-arrow-btn next-btn" type="button" aria-label="Next Testimonial">
+                            <i class="bi bi-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-5 testimonial-visual-col">
+                    <div class="testimonial-visual-box">
+                      <div class="testimonial-blob-bg"></div>
+                      <span class="blob-dot blob-dot-1"></span>
+                      <span class="blob-dot blob-dot-2"></span>
+                      <span class="blob-dot blob-dot-3"></span>
+                      <div class="testimonial-student-photo-wrap">
+                        <img src="images/testimonials/student-visual-2.png" alt="Aman Sharma Computer Science Student" class="testimonial-student-img">
+                      </div>
+                      <div class="floating-pen-wrapper">
+                        <img src="images/testimonials/floating-pen.svg" alt="Floating Creative Pen" class="floating-pen-img">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Priya Joshi (Law College Dehradun) -->
+            <div class="testimonial-slide" data-slide="2">
+              <div class="testimonial-card-main">
+                <div class="row g-0 align-items-center">
+                  <div class="col-lg-7 testimonial-content-col">
+                    <div class="testimonial-card-body">
+                      <div class="testimonial-top-row">
+                        <div class="testimonial-avatar-wrapper">
+                          <img src="images/testimonials/avatar-3.png" alt="Priya Joshi" class="testimonial-avatar-img">
+                        </div>
+                        <div class="testimonial-logo-divider"></div>
+                        <div class="testimonial-brand-logo">
+                          <img src="images/uu-logo.png" alt="Uttaranchal University Logo" class="testimonial-uu-logo">
+                        </div>
+                      </div>
+                      <div class="testimonial-quote-block">
+                        <span class="testimonial-quote-bar"></span>
+                        <p class="testimonial-quote-text">
+                          Law College Dehradun has an unmatched moot court culture and national legal forums. The exposure to distinguished jurists and practical courtroom simulations gave me immense confidence for national judicial service examinations.
+                        </p>
+                      </div>
+                      <div class="testimonial-bottom-row">
+                        <div class="testimonial-author-info">
+                          <h4 class="testimonial-author-name">Priya Joshi</h4>
+                          <span class="testimonial-author-role">B.A. LL.B. (Hons.) &mdash; Law College Dehradun</span>
+                        </div>
+                        <div class="testimonial-nav-arrows">
+                          <button class="testimonial-arrow-btn prev-btn" type="button" aria-label="Previous Testimonial">
+                            <i class="bi bi-arrow-left"></i>
+                          </button>
+                          <button class="testimonial-arrow-btn next-btn" type="button" aria-label="Next Testimonial">
+                            <i class="bi bi-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-5 testimonial-visual-col">
+                    <div class="testimonial-visual-box">
+                      <div class="testimonial-blob-bg"></div>
+                      <span class="blob-dot blob-dot-1"></span>
+                      <span class="blob-dot blob-dot-2"></span>
+                      <span class="blob-dot blob-dot-3"></span>
+                      <div class="testimonial-student-photo-wrap">
+                        <img src="images/testimonials/student-visual-3.png" alt="Priya Joshi Law Student" class="testimonial-student-img">
+                      </div>
+                      <div class="floating-pen-wrapper">
+                        <img src="images/testimonials/floating-pen.svg" alt="Floating Creative Pen" class="floating-pen-img">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Rohan Verma (MBA Graduate) -->
+            <div class="testimonial-slide" data-slide="3">
+              <div class="testimonial-card-main">
+                <div class="row g-0 align-items-center">
+                  <div class="col-lg-7 testimonial-content-col">
+                    <div class="testimonial-card-body">
+                      <div class="testimonial-top-row">
+                        <div class="testimonial-avatar-wrapper">
+                          <img src="images/testimonials/avatar-4.png" alt="Rohan Verma" class="testimonial-avatar-img">
+                        </div>
+                        <div class="testimonial-logo-divider"></div>
+                        <div class="testimonial-brand-logo">
+                          <img src="images/uu-logo.png" alt="Uttaranchal University Logo" class="testimonial-uu-logo">
+                        </div>
+                      </div>
+                      <div class="testimonial-quote-block">
+                        <span class="testimonial-quote-bar"></span>
+                        <p class="testimonial-quote-text">
+                          The corporate conclaves, live business analytics simulations, and placement training at Uttaranchal Institute of Management bridged the gap between theory and executive leadership. Proud to represent Uttaranchal University!
+                        </p>
+                      </div>
+                      <div class="testimonial-bottom-row">
+                        <div class="testimonial-author-info">
+                          <h4 class="testimonial-author-name">Rohan Verma</h4>
+                          <span class="testimonial-author-role">MBA (Marketing &amp; Analytics)</span>
+                        </div>
+                        <div class="testimonial-nav-arrows">
+                          <button class="testimonial-arrow-btn prev-btn" type="button" aria-label="Previous Testimonial">
+                            <i class="bi bi-arrow-left"></i>
+                          </button>
+                          <button class="testimonial-arrow-btn next-btn" type="button" aria-label="Next Testimonial">
+                            <i class="bi bi-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-5 testimonial-visual-col">
+                    <div class="testimonial-visual-box">
+                      <div class="testimonial-blob-bg"></div>
+                      <span class="blob-dot blob-dot-1"></span>
+                      <span class="blob-dot blob-dot-2"></span>
+                      <span class="blob-dot blob-dot-3"></span>
+                      <div class="testimonial-student-photo-wrap">
+                        <img src="images/testimonials/student-visual-4.png" alt="Rohan Verma MBA Student" class="testimonial-student-img">
+                      </div>
+                      <div class="floating-pen-wrapper">
+                        <img src="images/testimonials/floating-pen.svg" alt="Floating Creative Pen" class="floating-pen-img">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 4 Navigation Indicator Pills -->
+          <!-- <div class="testimonial-indicators" id="testimonialIndicators" role="tablist" aria-label="Testimonial slides">
+            <button class="testimonial-indicator-dot active" data-slide-to="0" type="button" aria-label="Testimonial 1"></button>
+            <button class="testimonial-indicator-dot" data-slide-to="1" type="button" aria-label="Testimonial 2"></button>
+            <button class="testimonial-indicator-dot" data-slide-to="2" type="button" aria-label="Testimonial 3"></button>
+            <button class="testimonial-indicator-dot" data-slide-to="3" type="button" aria-label="Testimonial 4"></button>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. THE UU STORY IN NUMBERS SECTION
+         - Plain white background
+         - 3 Authentic University Impact Cards from User Design:
+           1. Academic Excellence: 25+ Years of excellence | 500+ Faculty members | 100+ Study programmes
+           2. Career Opportunities: 250+ Recruiting partners | 5,000+ Placement opportunities | ₹71 LPA Highest package
+           3. Campus Experience: 100+ Acres Sprawling green campus | 50+ Student clubs & activities | 100+ Campus events every year
+         - Vibrant crimson/magenta stat typography (#D81E5B)
+         - Smooth animated count-up numbers on scroll
+         - Bottom CTA pill bar redirecting to #heroLeadForm
+         - Fully responsive across desktop (3 columns) and mobile (stacked cards)
+         ========================================================================= -->
+    <section class="story-numbers-section" id="storyNumbersSection">
+      <div class="container position-relative">
+        <!-- Section Header -->
+        <div class="story-numbers-header text-start">
+          <!-- <div class="story-numbers-accent-bar"></div> -->
+          <h2 class="story-numbers-title">
+            The UU Story in <span class="text-accent-green">Numbers.</span>
+          </h2>
+          <p class="story-numbers-subtitle">
+            Discover the scale, opportunities and experiences that shape life at Uttaranchal University.
+          </p>
+        </div>
+
+        <!-- 3 Story Metric Cards Row with Working Charts (Exact Match to User Reference) -->
+        <div class="row g-4 story-cards-row">
+          
+          <!-- Card 1: Academic Excellence -->
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="uu-metric-card" id="metricCard1">
+              <div class="uu-corner-wedge wedge-blue" aria-hidden="true"></div>
+              
+              <div class="uu-metric-card-header">
+                <h3 class="uu-metric-card-title">Academic Excellence</h3>
+                <p class="uu-metric-card-subtitle">A strong foundation for future-ready careers.</p>
+              </div>
+              
+              <div class="uu-metric-divider"></div>
+
+              <div class="uu-metric-stats-row">
+                <div class="uu-metric-stat-col">
+                  <div class="uu-metric-number-wrap">
+                    <span class="story-counter-num" data-count="25" data-suffix="+">25+</span>
+                  </div>
+                  <span class="uu-metric-label">Years of<br>excellence</span>
+                </div>
+                <div class="uu-metric-stat-col">
+                  <div class="uu-metric-number-wrap">
+                    <span class="story-counter-num" data-count="500" data-suffix="+">500+</span>
+                  </div>
+                  <span class="uu-metric-label">Faculty<br>members</span>
+                </div>
+                <div class="uu-metric-stat-col">
+                  <div class="uu-metric-number-wrap">
+                    <span class="story-counter-num" data-count="100" data-suffix="+">100+</span>
+                  </div>
+                  <span class="uu-metric-label">Study<br>programmes</span>
+                </div>
+              </div>
+
+              <!-- Interactive Chart Area for Card 1 -->
+              <div class="uu-card-chart-wrap mt-3">
+                <div class="uu-chart-flex">
+                  <div class="uu-chart-svg-container" id="chartContainer1">
+                    <div class="uu-chart-tooltip" id="graphTooltip1">Aug: 88 (+520%)</div>
+                    <svg class="uu-chart-svg" viewBox="0 0 280 140" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="cyanLineGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.38" />
+                          <stop offset="80%" stop-color="#00E5FF" stop-opacity="0.06" />
+                          <stop offset="100%" stop-color="#00E5FF" stop-opacity="0.0" />
+                        </linearGradient>
+                      </defs>
+                      
+                      <!-- Y-Axis Labels -->
+                      <g class="uu-chart-y-axis" font-size="9" fill="#94A3B8" text-anchor="end">
+                        <text x="22" y="18">100</text>
+                        <text x="22" y="41">80</text>
+                        <text x="22" y="64">60</text>
+                        <text x="22" y="87">40</text>
+                        <text x="22" y="110">20</text>
+                        <text x="22" y="133">0</text>
+                      </g>
+
+                      <!-- Horizontal Grid Lines -->
+                      <g class="uu-chart-grid" stroke="#E2E8F0" stroke-width="0.8">
+                        <line x1="28" y1="15" x2="275" y2="15" />
+                        <line x1="28" y1="38" x2="275" y2="38" />
+                        <line x1="28" y1="61" x2="275" y2="61" />
+                        <line x1="28" y1="84" x2="275" y2="84" />
+                        <line x1="28" y1="107" x2="275" y2="107" />
+                        <line x1="28" y1="130" x2="275" y2="130" />
+                      </g>
+
+                      <!-- X-Axis Labels -->
+                      <g class="uu-chart-x-axis" font-size="9" fill="#64748B" text-anchor="middle">
+                        <text x="36" y="139">Jan</text>
+                        <text x="70" y="139">Feb</text>
+                        <text x="104" y="139">Mar</text>
+                        <text x="138" y="139">Apr</text>
+                        <text x="172" y="139">May</text>
+                        <text x="206" y="139">Jun</text>
+                        <text x="240" y="139">Jul</text>
+                        <text x="268" y="139">Aug</text>
+                      </g>
+
+                      <!-- Gradient Area Fill -->
+                      <path id="graphArea1" class="uu-graph-area" fill="url(#cyanLineGrad)"
+                        d="M 36,130 L 36,112 L 70,78 L 104,90 L 138,68 L 172,82 L 206,54 L 240,74 L 268,26 L 268,130 Z" />
+
+                      <!-- Interactive Crosshair scanning line & tracking dot -->
+                      <line id="crosshairLine1" class="uu-crosshair-line" x1="0" y1="15" x2="0" y2="130" stroke="#00E5FF" stroke-width="1.2" stroke-dasharray="3,3" style="display:none;" />
+                      <circle id="crosshairDot1" class="uu-crosshair-dot" cx="0" cy="0" r="4.5" fill="#00E5FF" stroke="#FFFFFF" stroke-width="2" style="display:none;" />
+
+                      <!-- Cyan Line Path -->
+                      <path id="graphLine1" class="uu-graph-line" stroke="#00E5FF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        d="M 36,112 L 70,78 L 104,90 L 138,68 L 172,82 L 206,54 L 240,74 L 268,26" />
+
+                      <!-- End Node Glow Circle -->
+                      <circle cx="268" cy="26" r="4.5" fill="#FFFFFF" stroke="#00E5FF" stroke-width="3" class="uu-chart-pulse-dot" />
+                    </svg>
+                  </div>
+
+                  <!-- Right Side Metrics Badge -->
+                  <div class="uu-chart-metric-badge">
+                    <span class="uu-chart-metric-num" id="card1BigMetric" data-count="63" data-prefix="+">+63</span>
+                    <span class="uu-chart-trend-green" id="card1SubMetric" data-count="520" data-prefix="+" data-suffix="%">+520%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Career Opportunities -->
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="uu-metric-card" id="metricCard2">
+              <div class="uu-corner-wedge wedge-magenta" aria-hidden="true"></div>
+
+              <div class="uu-metric-card-header">
+                <h3 class="uu-metric-card-title">Career Opportunities</h3>
+                <p class="uu-metric-card-subtitle">Learning that connects with industry.</p>
+              </div>
+              
+              <div class="uu-metric-divider"></div>
+
+              <div class="uu-metric-stats-row">
+                <div class="uu-metric-stat-col">
+                  <div class="uu-metric-number-wrap">
+                    <span class="story-counter-num" data-count="250" data-suffix="+">250+</span>
+                  </div>
+                  <span class="uu-metric-label">Recruiting<br>partners</span>
+                </div>
+                <div class="uu-metric-stat-col">
+                  <div class="uu-metric-number-wrap">
+                    <span class="story-counter-num" data-count="5000" data-suffix="+" data-format="comma">5,000+</span>
+                  </div>
+                  <span class="uu-metric-label">Placement<br>opportunities</span>
+                </div>
+                <div class="uu-metric-stat-col">
+                  <div class="uu-metric-number-wrap">
+                    <span class="story-counter-num" data-count="71" data-prefix="₹" data-suffix=" LPA">₹71 LPA</span>
+                  </div>
+                  <span class="uu-metric-label">Highest<br>package</span>
+                </div>
+              </div>
+
+              <!-- Interactive Chart Area for Card 2 -->
+              <div class="uu-card-chart-wrap mt-3">
+                <div class="uu-chart-flex">
+                  <div class="uu-chart-svg-container" id="chartContainer2">
+                    <div class="uu-chart-tooltip" id="graphTooltip2">Aug: 34 (-62.50%)</div>
+                    <svg class="uu-chart-svg" viewBox="0 0 280 140" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="purpleLineGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#7928CA" stop-opacity="0.35" />
+                          <stop offset="80%" stop-color="#E11D48" stop-opacity="0.06" />
+                          <stop offset="100%" stop-color="#E11D48" stop-opacity="0.0" />
+                        </linearGradient>
+                      </defs>
+                      
+                      <!-- Y-Axis Labels -->
+                      <g class="uu-chart-y-axis" font-size="9" fill="#94A3B8" text-anchor="end">
+                        <text x="22" y="18">100</text>
+                        <text x="22" y="41">80</text>
+                        <text x="22" y="64">60</text>
+                        <text x="22" y="87">40</text>
+                        <text x="22" y="110">20</text>
+                        <text x="22" y="133">0</text>
+                      </g>
+
+                      <!-- Horizontal Grid Lines -->
+                      <g class="uu-chart-grid" stroke="#E2E8F0" stroke-width="0.8">
+                        <line x1="28" y1="15" x2="275" y2="15" />
+                        <line x1="28" y1="38" x2="275" y2="38" />
+                        <line x1="28" y1="61" x2="275" y2="61" />
+                        <line x1="28" y1="84" x2="275" y2="84" />
+                        <line x1="28" y1="107" x2="275" y2="107" />
+                        <line x1="28" y1="130" x2="275" y2="130" />
+                      </g>
+
+                      <!-- X-Axis Labels -->
+                      <g class="uu-chart-x-axis" font-size="9" fill="#64748B" text-anchor="middle">
+                        <text x="36" y="139">Jan</text>
+                        <text x="70" y="139">Feb</text>
+                        <text x="104" y="139">Mar</text>
+                        <text x="138" y="139">Apr</text>
+                        <text x="172" y="139">May</text>
+                        <text x="206" y="139">Jun</text>
+                        <text x="240" y="139">Jul</text>
+                        <text x="268" y="139">Aug</text>
+                      </g>
+
+                      <!-- Gradient Area Fill -->
+                      <path id="graphArea2" class="uu-graph-area" fill="url(#purpleLineGrad)"
+                        d="M 36,130 L 36,25 L 70,45 L 104,74 L 138,58 L 172,78 L 206,62 L 240,48 L 268,96 L 268,130 Z" />
+
+                      <!-- Interactive Crosshair scanning line & tracking dot -->
+                      <line id="crosshairLine2" class="uu-crosshair-line" x1="0" y1="15" x2="0" y2="130" stroke="#7928CA" stroke-width="1.2" stroke-dasharray="3,3" style="display:none;" />
+                      <circle id="crosshairDot2" class="uu-crosshair-dot" cx="0" cy="0" r="4.5" fill="#7928CA" stroke="#FFFFFF" stroke-width="2" style="display:none;" />
+
+                      <!-- Purple Line Path -->
+                      <path id="graphLine2" class="uu-graph-line" stroke="#7928CA" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        d="M 36,25 L 70,45 L 104,74 L 138,58 L 172,78 L 206,62 L 240,48 L 268,96" />
+
+                      <!-- End Node Glow Circle -->
+                      <circle cx="268" cy="96" r="4.5" fill="#FFFFFF" stroke="#7928CA" stroke-width="3" class="uu-chart-pulse-dot" />
+                    </svg>
+                  </div>
+
+                  <!-- Right Side Metrics Badge -->
+                  <div class="uu-chart-metric-badge">
+                    <span class="uu-chart-metric-num" id="card2BigMetric" data-count="+90">+90</span>
+                    <span class="uu-chart-trend-red" id="card2SubMetric" data-count="+90.50" data-suffix="%" data-decimals="2">+90.50%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Campus Experience -->
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="uu-metric-card" id="metricCard3">
+              <div class="uu-corner-wedge wedge-purple" aria-hidden="true"></div>
+
+              <div class="uu-metric-card-header">
+                <h3 class="uu-metric-card-title">Campus Experience</h3>
+                <p class="uu-metric-card-subtitle">A vibrant environment to learn and grow.</p>
+              </div>
+              
+              <div class="uu-metric-divider"></div>
+
+              <div class="uu-metric-stats-row">
+                <div class="uu-metric-stat-col">
+                  <div class="uu-metric-number-wrap">
+                    <span class="story-counter-num" data-count="100" data-suffix="+ Acres">100+ Acres</span>
+                  </div>
+                  <span class="uu-metric-label">Sprawling<br>green campus</span>
+                </div>
+                <div class="uu-metric-stat-col">
+                  <div class="uu-metric-number-wrap">
+                    <span class="story-counter-num" data-count="50" data-suffix="+">50+</span>
+                  </div>
+                  <span class="uu-metric-label">Student clubs<br>&amp; activities</span>
+                </div>
+                <div class="uu-metric-stat-col">
+                  <div class="uu-metric-number-wrap">
+                    <span class="story-counter-num" data-count="100" data-suffix="+">100+</span>
+                  </div>
+                  <span class="uu-metric-label">Campus<br>events every year</span>
+                </div>
+              </div>
+
+              <!-- Interactive Chart Area for Card 3 (Donut Ring Chart) -->
+              <div class="uu-card-chart-wrap uu-donut-chart-wrap mt-3">
+                <div class="uu-donut-container">
+                  <svg class="uu-donut-svg" viewBox="0 0 160 160">
+                    <defs>
+                      <linearGradient id="uuDonutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#7928CA" />
+                        <stop offset="50%" stop-color="#A855F7" />
+                        <stop offset="100%" stop-color="#D81E5B" />
+                      </linearGradient>
+                    </defs>
+                    <!-- Background Track -->
+                    <circle cx="80" cy="80" r="58" fill="none" stroke="#F1F5F9" stroke-width="12" />
+                    <!-- Animated Progress Ring -->
+                    <circle id="ringCircle3" class="uu-donut-progress" cx="80" cy="80" r="58" fill="none"
+                      stroke="url(#uuDonutGrad)" stroke-width="12" stroke-linecap="round"
+                      stroke-dasharray="364.42" stroke-dashoffset="364.42"
+                      transform="rotate(-90 80 80)" />
+                    <!-- Center Percentage Text -->
+                    <text x="80" y="89" text-anchor="middle" class="uu-donut-center-text" id="ringNumber3" data-count="77" data-suffix="%">77%</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom CTA Pill Bar (Exact Match to User Reference Image) -->
+        <div class="story-cta-pill-bar mt-5">
+          <div class="story-cta-left">
+            <span class="story-cta-magenta-indicator" aria-hidden="true"></span>
+            <div class="story-cta-text-group">
+              <h4 class="story-cta-headline">
+                Your journey <span class="text-accent-magenta">starts here.</span>
+              </h4>
+              <span class="story-cta-divider" aria-hidden="true">|</span>
+              <p class="story-cta-subtext">
+                Discover what makes UU uniquely yours.
+              </p>
+            </div>
+          </div>
+          <div class="story-cta-right">
+            <a href="#heroLeadForm" class="story-counsellor-btn">
+              <span>Talk to a Counsellor</span>
+              <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. SCHOLARSHIP SECTION (CINEMATIC EXPANDING CARD SLIDER)
+         - Full-width background image transitions
+         - Horizontal preview cards on the right
+         - Active content blur-to-clear & fade-in animation
+         - 3 Authentic Slides: Sibling Aid (10%), General Conditions, Merit (Up to 65%)
+         ========================================================================= -->
+    <section class="uu-scholarship-section" id="scholarshipSection">
+      <!-- Cinematic Card Slider Container -->
+      <div class="uu-scholarship-slider" id="uuScholarshipSlider" role="region" aria-label="Scholarship Opportunities">
+        <div class="uu-scholarship-list" id="uuScholarshipList">
+
+          <!-- Slide 03: Uttarakhand State Domicile Scholarship (Initial off-screen item for smooth 01 start) -->
+          <div class="uu-scholarship-item" style="background-image: url('images/GeneralScholarshipConditions.webp');" data-index="2" role="group" aria-label="Uttarakhand State Domicile Scholarship">
+            <div class="uu-scholarship-overlay"></div>
+            
+            <!-- Active Slide Clean Typography Content (Exact Match to User Screenshot) -->
+            <div class="uu-scholarship-content">
+              <div class="uu-scholarship-badge">
+                <i class="bi bi-award-fill me-1"></i> 25% Uttarakhand Domicile
+              </div>
+              <h2 class="uu-scholarship-title">Uttarakhand State Domicile Scholarship</h2>
+              <p class="uu-scholarship-lead">
+                The Uttaranchal University awards <span class="text-accent-green fw-semibold">25% scholarship on Tuition Fee</span> to Uttarakhand Domicile Students. <span class="text-accent-green fw-semibold">25% of seats</span> for these students are reserved for the entire programmes of the University.
+              </p>
+              <p class="uu-scholarship-subtext">
+                To claim this scholarship, the student must carry a valid <span class="text-accent-green fw-semibold">Domicile Certificate (Original)</span> of Uttarakhand State at the time of admission/counselling.
+              </p>
+
+              <div class="uu-scholarship-btn-row">
+                <a href="#heroLeadForm" class="uu-scholarship-btn-primary">
+                  <span>Apply as UK Domicile</span>
+                  <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <a href="#heroLeadForm" class="uu-scholarship-btn-secondary">
+                  <i class="bi bi-shield-check me-2"></i>
+                  <span>Domicile Verification</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Showcase Preview Card (Matches User Screenshot) -->
+            <div class="uu-scholarship-preview-card" style="background-image: url('images/GeneralScholarshipConditions.webp');" role="button" aria-label="Uttarakhand State Domicile Scholarship Card">
+              <div class="preview-card-overlay"></div>
+              <div class="preview-card-content">
+                <span class="preview-badge-green">25% Reserved</span>
+                <h4 class="preview-title">Uttarakhand Domicile</h4>
+                <p class="preview-tagline">25% scholarship &amp; reserved seats</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 01: Sushila Devi Scholarship for Girls (Active on page load) -->
+          <div class="uu-scholarship-item" style="background-image: url('images/ScholarshiptotheSibling.webp');" data-index="0" role="group" aria-label="Sushila Devi Scholarship for Girls">
+            <div class="uu-scholarship-overlay"></div>
+            
+            <!-- Active Slide Clean Typography Content (Exact Match to User Screenshot) -->
+            <div class="uu-scholarship-content">
+              <div class="uu-scholarship-badge">
+                <i class="bi bi-award-fill me-1"></i> 5% Scholarship for Girls
+              </div>
+              <h2 class="uu-scholarship-title">Sushila Devi Scholarship for Girls</h2>
+              <p class="uu-scholarship-lead">
+                The Uttaranchal University awards <span class="text-accent-green fw-semibold">5% Sushila Devi Scholarship for Girl students</span> on net Tuition Fee. This scholarship is applicable for the <span class="text-accent-green fw-semibold">entire duration of programme</span>. The Scholarship percentage will remain same for "Uttarakhand"/"All India" category.
+              </p>
+              <p class="uu-scholarship-subtext">
+                <strong class="text-white">Note:</strong> No Scholarship is available for <span class="text-accent-green fw-semibold">MBA Executive, B.Sc. Nursing, Diploma in Hotel Management &amp; Certificate in Hotel Management</span>.
+              </p>
+
+              <div class="uu-scholarship-btn-row">
+                <a href="#heroLeadForm" class="uu-scholarship-btn-primary">
+                  <span>Apply for Girls Aid</span>
+                  <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <a href="#heroLeadForm" class="uu-scholarship-btn-secondary">
+                  <i class="bi bi-shield-check me-2"></i>
+                  <span>Program Guidelines</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Showcase Preview Card (Matches User Screenshot) -->
+            <div class="uu-scholarship-preview-card" style="background-image: url('images/ScholarshiptotheSibling.webp');" role="button" aria-label="Sushila Devi Scholarship for Girls Card">
+              <div class="preview-card-overlay"></div>
+              <div class="preview-card-content">
+                <span class="preview-badge-green">5% Off</span>
+                <h4 class="preview-title">Girls Scholarship</h4>
+                <p class="preview-tagline">5% award for entire program duration</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 02: Hills States Domicile Scholarship -->
+          <div class="uu-scholarship-item" style="background-image: url('images/Merit Scholarship.webp');" data-index="1" role="group" aria-label="Hills States Domicile Scholarship">
+            <div class="uu-scholarship-overlay"></div>
+            
+            <!-- Active Slide Clean Typography Content (Exact Match to User Screenshot) -->
+            <div class="uu-scholarship-content">
+              <div class="uu-scholarship-badge">
+                <i class="bi bi-geo-alt-fill me-1"></i> 25% Hill States Domicile
+              </div>
+              <h2 class="uu-scholarship-title">Hills States Domicile Scholarship</h2>
+              <p class="uu-scholarship-lead">
+                The Uttaranchal University awards <span class="text-accent-green fw-semibold">25% scholarship on Tuition Fee</span> to the Domiciled students of Hill States of India.
+              </p>
+              <p class="uu-scholarship-subtext">
+                Eligible States &amp; Regions: <span class="text-accent-green fw-semibold">Jammu and Kashmir, Ladakh, Sikkim, Nagaland, Assam, Tripura, Arunachal Pradesh, Manipur, Mizoram, Meghalaya, Himachal Pradesh</span> and <span class="text-accent-green fw-semibold">District Darjeeling, Kalimpong (West Bengal)</span>.
+              </p>
+
+              <div class="uu-scholarship-btn-row">
+                <a href="#heroLeadForm" class="uu-scholarship-btn-primary">
+                  <span>Apply for Domicile Aid</span>
+                  <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <a href="#heroLeadForm" class="uu-scholarship-btn-secondary">
+                  <i class="bi bi-shield-check me-2"></i>
+                  <span>State Eligibility</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Showcase Preview Card (Matches User Screenshot) -->
+            <div class="uu-scholarship-preview-card" style="background-image: url('images/Merit Scholarship.webp');" role="button" aria-label="Hills States Domicile Scholarship Card">
+              <div class="preview-card-overlay"></div>
+              <div class="preview-card-content">
+                <span class="preview-badge-green">25% Off</span>
+                <h4 class="preview-title">Hill States Domicile</h4>
+                <p class="preview-tagline">25% award on Tuition Fee</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Controls & Progress Bar (Exact Match to User Screenshot) -->
+        <div class="uu-scholarship-bottom-bar">
+          <div class="uu-scholarship-controls">
+            <button type="button" class="uu-scholarship-nav-btn prev-btn" id="uuScholarshipPrev" aria-label="Previous Scholarship Slide">
+              <i class="bi bi-arrow-left"></i>
+            </button>
+            <button type="button" class="uu-scholarship-nav-btn next-btn" id="uuScholarshipNext" aria-label="Next Scholarship Slide">
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+          <div class="uu-scholarship-indicator-wrap" id="uuScholarshipIndicators">
+            <span class="uu-scholarship-step-counter" id="uuScholarshipCounter">01 / 03</span>
+            <div class="uu-scholarship-progress-line">
+              <div class="uu-scholarship-progress-active" id="uuScholarshipProgress"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         HOW TO APPLY SECTION (3-Step Chronological Admission Timeline)
+         - Plain white background as requested
+         - Step 1: Apply Online (Left)
+         - Step 2: Application Check (Right)
+         - Step 3: Interview (Left)
+         - Central Grey Timeline Track with Arrowhead & Circular Nodes
+         - Fully Responsive & Interactive (All Actions redirect to Hero Form)
+         ========================================================================= -->
+    <section class="uu-apply-section" id="howToApplySection">
+      <div class="container">
+        <!-- Section Header with Magenta Accent Line & Subheading -->
+        <div class="uu-apply-header">
+          <h2 class="uu-apply-title">How to Apply?</h2>
+          <div class="uu-apply-accent-bar" aria-hidden="true"></div>
+          <p class="uu-apply-intro">
+            Are you thinking of applying for study at UU or supporting someone who is? Please complete the steps to start your journey.
+          </p>
+        </div>
+
+        <!-- 3-Step Alternating Timeline -->
+        <div class="uu-apply-timeline">
+          <!-- Central Guide Track with Bottom Arrow -->
+          <div class="uu-apply-track" aria-hidden="true">
+            <div class="uu-apply-arrow-head"></div>
+          </div>
+
+          <!-- Step 1: Registration (Left) -->
+          <div class="uu-apply-step-row uu-apply-step-left">
+            <div class="uu-apply-card-col">
+              <a href="#heroLeadForm" class="uu-apply-card" title="Step 1: Registration">
+                <div class="uu-apply-icon-box" aria-hidden="true">
+                  <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="7" y="10" width="34" height="22" rx="2"></rect>
+                    <path d="M2 38h44c0-2-3-4-6-4H8c-3 0-6 2-6 4z"></path>
+                    <line x1="20" y1="34" x2="28" y2="34"></line>
+                  </svg>
+                </div>
+                <div class="uu-apply-content">
+                  <div class="uu-apply-step-badge">Step 1</div>
+                  <h3 class="uu-apply-card-title">Registration</h3>
+                  <p class="uu-apply-card-desc">Apply Now and Register.</p>
+                </div>
+              </a>
+            </div>
+            <div class="uu-apply-node-col">
+              <div class="uu-apply-node" aria-hidden="true"></div>
+            </div>
+            <div class="uu-apply-spacer-col" aria-hidden="true"></div>
+          </div>
+
+          <!-- Step 2: Application Form (Right) -->
+          <div class="uu-apply-step-row uu-apply-step-right">
+            <div class="uu-apply-spacer-col" aria-hidden="true"></div>
+            <div class="uu-apply-node-col">
+              <div class="uu-apply-node" aria-hidden="true"></div>
+            </div>
+            <div class="uu-apply-card-col">
+              <a href="#heroLeadForm" class="uu-apply-card" title="Step 2: Application Form">
+                <div class="uu-apply-icon-box" aria-hidden="true">
+                  <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M28 6H12a2 2 0 0 0-2 2v32a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V16l-10-10z"></path>
+                    <polyline points="28 6 28 16 38 16"></polyline>
+                    <line x1="16" y1="24" x2="28" y2="24"></line>
+                    <line x1="16" y1="30" x2="24" y2="30"></line>
+                    <line x1="16" y1="36" x2="20" y2="36"></line>
+                  </svg>
+                </div>
+                <div class="uu-apply-content">
+                  <div class="uu-apply-step-badge">Step 2</div>
+                  <h3 class="uu-apply-card-title">Application Form</h3>
+                  <p class="uu-apply-card-desc">Fill the details and upload relevant documents</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Step 3: Document Verification & Admission (Left) -->
+          <div class="uu-apply-step-row uu-apply-step-left">
+            <div class="uu-apply-card-col">
+              <a href="#heroLeadForm" class="uu-apply-card" title="Step 3: Document verification & Admission">
+                <div class="uu-apply-icon-box" aria-hidden="true">
+                  <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M24 4l16 6v12c0 10.5-6.8 20.3-16 22-9.2-1.7-16-11.5-16-22V10l16-6z"></path>
+                    <polyline points="16 24 22 30 32 18"></polyline>
+                  </svg>
+                </div>
+                <div class="uu-apply-content">
+                  <div class="uu-apply-step-badge">Step 3</div>
+                  <h3 class="uu-apply-card-title">Document verification &amp; Admission</h3>
+                  <p class="uu-apply-card-desc">Wait for the approval, pay the program fee &amp; Start your journey with us.</p>
+                </div>
+              </a>
+            </div>
+            <div class="uu-apply-node-col">
+              <div class="uu-apply-node" aria-hidden="true"></div>
+            </div>
+            <div class="uu-apply-spacer-col" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Development with International Outlook Banner & CTA -->
+        <div class="uu-apply-outlook-banner">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <div class="d-flex align-items-start gap-3">
+                <div class="uu-apply-outlook-icon" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0E244A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="uu-apply-outlook-title">Development with International Outlook</h4>
+                  <p class="uu-apply-outlook-desc mb-0">
+                    Our students graduate with self-confidence and social skills. The diversity they encounter during their education prepares them to engage in various cultures and global industries.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="#heroLeadForm" class="btn btn-uu-navy-pill">
+                <span>Start Your Application</span>
+                <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       OFFICIAL UTTARANCHAL UNIVERSITY COMPREHENSIVE FOOTER
+       - Background Color: #001E50 (Authentic Royal University Navy from user reference)
+       - Top Section: 4-Column Comprehensive University Information
+         * Col 1: About University, NAAC Grade A+ recognition, Social Links
+         * Col 2: Schools & Institutes of Uttaranchal University
+         * Col 3: Admissions 2026 & Quick Academic Links
+         * Col 4: Campus Contact, Helpline, Email & Quick Apply CTA
+       - Bottom Bar: Exactly matching user reference image media_1795605693627_a25737b8.jpg
+         * Left: Official Uttaranchal University Logo
+         * Right: © 2026 Uttaranchal University. All Rights Reserved.
+       ========================================================================= -->
+  <footer class="uu-footer" id="siteFooter">
+    <div class="container">
+      <!-- Main Admissions Call to Action Row -->
+      <div class="uu-footer-cta-wrap">
+        <div class="row align-items-center g-4">
+          <!-- Left Column: Admissions Information & Checklist -->
+          <div class="col-lg-7">
+            <div class="uu-footer-cta-left">
+              <span class="uu-footer-badge">
+                <span class="uu-badge-dot"></span>
+                ADMISSIONS OPEN
+              </span>
+              <h2 class="uu-footer-cta-title">Make your next move count.</h2>
+              <p class="uu-footer-cta-desc">
+                Find the right programme and get support from our admissions team at every step.
+              </p>
+              <div class="uu-footer-check-list">
+                <div class="uu-footer-check-item">
+                  <span class="uu-check-icon"><i class="bi bi-check2"></i></span>
+                  <span>Scholarships available</span>
+                </div>
+                <div class="uu-footer-check-item">
+                  <span class="uu-check-icon"><i class="bi bi-check2"></i></span>
+                  <span>Personalised guidance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Action Buttons -->
+          <div class="col-lg-5 text-lg-end text-start">
+            <div class="uu-footer-cta-right">
+              <span class="uu-footer-action-label">TAKE THE FIRST STEP</span>
+              <div class="uu-footer-btn-group">
+                <a href="#heroLeadForm" class="btn-footer-primary">
+                  <span>Start your application</span>
+                  <i class="bi bi-arrow-up-right ms-2"></i>
+                </a>
+                <a href="tel:18002124201" class="btn-footer-secondary">
+                  <i class="bi bi-telephone-fill me-2"></i>
+                  <span>Call 1800 212 4201</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar (Exact match to User Reference Image) -->
+    <div class="uu-footer-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left: University Logo with Crest -->
+          <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+            <a href="#" class="uu-footer-logo-link" aria-label="Uttaranchal University Home">
+              <img src="images/uu-footer-logo.png" alt="Uttaranchal University" class="uu-footer-logo" width="166" height="46" loading="lazy">
+            </a>
+          </div>
+
+          <!-- Right: Copyright -->
+          <div class="col-md-6 text-center text-md-end">
+            <p class="uu-footer-copyright mb-0">
+              © 2026 Uttaranchal University. All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS (Local) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core Main JS -->
+  <script src="script.js"></script>
+</body>
+</html>
